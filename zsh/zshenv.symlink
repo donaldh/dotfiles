@@ -8,6 +8,7 @@ path=(
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
-export MAVEN_OPTS="-XX:MaxPermSize=512m"
-
-export HOMEBREW_GITHUB_API_TOKEN=584c442113488c739703cb693a56cdd01914142a
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
