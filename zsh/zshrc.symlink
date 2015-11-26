@@ -1,0 +1,13 @@
+setopt PUSHD_MINUS
+setopt appendhistory
+setopt automenu
+setopt autolist
+setopt extendedhistory
+setopt extendedglob
+setopt histignoredups
+
+HISTFILE=~/.zsh_history
+SAVEHIST=1024
+
+PERL_MB_OPT="--install_base \"/Users/donaldh/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/donaldh/perl5"; export PERL_MM_OPT;
