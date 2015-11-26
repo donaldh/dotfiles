@@ -20,3 +20,6 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 (setq mac-right-option-modifier 'alt)
+
+(setq inhibit-splash-screen t)
+(setq initial-frame-alist '((width . 132) (height . 80)))
