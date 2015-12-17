@@ -23,3 +23,7 @@
 
 (setq inhibit-splash-screen t)
 (setq initial-frame-alist '((width . 132) (height . 80)))
+
+(add-to-list 'load-path "~/.emacs.d/local")
+(autoload 'yang-mode "yang-mode" "Major mode for editing YANG models." t)
+(add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
