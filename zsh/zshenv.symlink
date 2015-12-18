@@ -5,7 +5,8 @@ path=(
 	~/.rakudobrew/bin
 )
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home
+latest_jdk=( /lIBRARY/jAVA/jAVAvIRTUALmACHINES/*(oN[1]) )
+export JAVA_HOME=${~latest_jdk}/Contents/Home
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
 if [[ -a ~/.localrc ]]
