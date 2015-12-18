@@ -3,9 +3,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default-frame-alist (quote ((width . 132) (height . 80))))
  '(fringe-mode 0 nil (fringe))
+ '(indent-tabs-mode nil)
+ '(inhibit-startup-screen t)
+ '(package-selected-packages (quote (yaml-mode perl6-mode)))
+ '(scroll-bar-mode nil)
  '(show-paren-mode t)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(tooltip-mode nil)
+ '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -20,9 +27,6 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 (setq mac-right-option-modifier 'alt)
-
-(setq inhibit-splash-screen t)
-(setq initial-frame-alist '((width . 132) (height . 80)))
 
 (add-to-list 'load-path "~/.emacs.d/local")
 (autoload 'yang-mode "yang-mode" "Major mode for editing YANG models." t)
