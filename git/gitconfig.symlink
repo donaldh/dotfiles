@@ -1,0 +1,19 @@
+[user]
+	name = Donald Hunter
+	email = donaldh@cisco.com
+[core]
+	autocrlf = input
+	ignorecase = false
+	excludesfile = /Users/donaldh/.gitignore_global
+[color]
+	ui = auto
+[log]
+	decorate = full
+[rebase]
+	stat = true
+[alias]
+	logp = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[http]
+	sslVerify = false
+[push]
+	default = simple
