@@ -7,7 +7,7 @@
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (yaml-mode perl6-mode)))
+ '(package-selected-packages (quote (swift-mode yaml-mode perl6-mode)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
