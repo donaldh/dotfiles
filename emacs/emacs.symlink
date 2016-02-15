@@ -7,7 +7,7 @@
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (magit swift-mode yaml-mode perl6-mode)))
+ '(package-selected-packages (quote (web-mode magit swift-mode yaml-mode perl6-mode)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
@@ -27,7 +27,13 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 (setq mac-right-option-modifier 'alt)
+(setq-default show-trailing-whitespace t)
+
+(setq web-mode-script-padding 2)
+(setq web-mode-style-padding 2)
+(setq web-mode-markup-indent-offset 2)
 
 (add-to-list 'load-path "~/.emacs.d/local")
 (autoload 'yang-mode "yang-mode" "Major mode for editing YANG models." t)
 (add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
