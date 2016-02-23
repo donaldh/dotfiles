@@ -41,3 +41,6 @@
 (autoload 'yang-mode "yang-mode" "Major mode for editing YANG models." t)
 (add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(autoload 'nrnhoc-mode "nrnhoc" "Enter NRNHOC mode." t)
+(setq auto-mode-alist (cons '("\\.hoc\\'" . nrnhoc-mode) auto-mode-alist))
