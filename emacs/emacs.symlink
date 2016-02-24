@@ -43,4 +43,6 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 (autoload 'nrnhoc-mode "nrnhoc" "Enter NRNHOC mode." t)
-(setq auto-mode-alist (cons '("\\.hoc\\'" . nrnhoc-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.hoc\\'" . nrnhoc-mode))
+(autoload 'nmodl-mode "nmodl" "Enter NMODL mode." t)
+(add-to-list 'auto-mode-alist '("\\.mod\\'" . nmodl-mode))
