@@ -77,7 +77,7 @@
       nil)
     (defmacro defface (&rest args) nil)
     (defmacro defcustom (var value doc &rest args)
-      (` (defvar (, var) (, value) (, doc))))))
+      `(defvar ,var ,value ,doc) )))
 
 ;; compatibility
 
