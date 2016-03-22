@@ -34,6 +34,7 @@
 (global-set-key [(meta h)] 'ns-do-hide-emacs)
 
 (setq-default show-trailing-whitespace t)
+(setq-default fill-column 96)
 
 (setq web-mode-script-padding 2)
 (setq web-mode-style-padding 2)
