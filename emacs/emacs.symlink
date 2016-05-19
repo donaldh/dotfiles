@@ -32,6 +32,8 @@
 (setq mac-option-modifier nil)
 (setq mac-right-option-modifier 'alt)
 (global-set-key [(meta h)] 'ns-do-hide-emacs)
+(global-set-key [wheel-left] 'ignore)
+(global-set-key [wheel-right] 'ignore)
 
 (setq-default show-trailing-whitespace t)
 (setq-default fill-column 96)
