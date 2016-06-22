@@ -9,6 +9,7 @@
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(nxml-slash-auto-complete-flag t)
  '(package-selected-packages
    (quote
     (go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
