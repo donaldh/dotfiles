@@ -31,6 +31,7 @@
 (add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 
+;; Keys
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 (setq mac-right-option-modifier 'alt)
@@ -39,15 +40,30 @@
 (global-set-key [wheel-left] 'ignore)
 (global-set-key [wheel-right] 'ignore)
 
+;; Text
 (setq-default show-trailing-whitespace t)
 (setq-default fill-column 96)
 
+;; Javascript
 (setq js-switch-indent-offset 4)
 
+;; Web-mode
 (setq web-mode-script-padding 2)
 (setq web-mode-style-padding 2)
 (setq web-mode-markup-indent-offset 2)
 
+;; erc with socks proxy
+(defun cisco-erc ()
+  "Run erc with cisco socks server"
+  (interactive)
+  (setq socks-noproxy '("localhost"))
+  (require 'socks)
+  (setq erc-server-connect-function 'socks-open-network-stream)
+  (setq socks-server (list "proxy-ams-1" "proxy-ams-1.cisco.com" 1080 5))
+  (erc)
+)
+
+;; Autoloads
 (add-to-list 'load-path "~/.emacs.d/local")
 (autoload 'yang-mode "yang-mode" "Major mode for editing YANG models." t)
 (add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
