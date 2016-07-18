@@ -2,7 +2,7 @@
 
 path=(
 	$path
-	~/.rakudobrew/bin
+	~/.rakudobrew/bin(N)
 )
 
 latest_jdk=( /Library/Java/JavaVirtualMachines/*(On[1]) )
