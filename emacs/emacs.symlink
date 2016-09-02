@@ -3,8 +3,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(custom-enabled-themes (quote (tango-dark)))
  '(default-frame-alist (quote ((width . 132) (height . 80))))
+ '(erc-fill-column 120)
  '(frame-background-mode nil)
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
@@ -12,13 +14,11 @@
  '(nxml-slash-auto-complete-flag t)
  '(package-selected-packages
    (quote
-    (erc-hl-nicks go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
+    (dockerfile-mode erc-hl-nicks go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
- '(column-number-mode t)
- '(erc-fill-column 120)
  '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
