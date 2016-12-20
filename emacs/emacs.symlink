@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(column-number-mode t)
  '(custom-enabled-themes (quote (tango-dark)))
  '(default-frame-alist (quote ((width . 132) (height . 80))))
@@ -16,7 +17,7 @@
  '(nxml-slash-auto-complete-flag t)
  '(package-selected-packages
    (quote
-    (dockerfile-mode erc-hl-nicks go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
+    (pandoc-mode auctex dockerfile-mode erc-hl-nicks go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
