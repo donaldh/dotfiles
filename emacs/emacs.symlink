@@ -71,10 +71,3 @@
 (autoload 'yang-mode "yang-mode" "Major mode for editing YANG models." t)
 (add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
-(autoload 'nrnhoc-mode "nrnhoc" "Enter NRNHOC mode." t)
-(add-to-list 'auto-mode-alist '("\\.hoc\\'" . nrnhoc-mode))
-(autoload 'nmodl-mode "nmodl" "Enter NMODL mode." t)
-(add-to-list 'auto-mode-alist '("\\.mod\\'" . nmodl-mode))
-
-(autoload 'erc-nicklist "erc-nicklist" "ERC nick list" t)
