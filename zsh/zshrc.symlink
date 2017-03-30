@@ -1,7 +1,7 @@
+# -*- shell-script -*-
+
 HISTFILE=~/.zsh_history
 SAVEHIST=1024
-
-export DOT=$HOME/.dotfiles
 
 for file in $DOT/*/*.zsh
 do
