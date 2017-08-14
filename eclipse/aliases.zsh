@@ -1,1 +1,1 @@
-alias eclipsews='open -n -a /Applications/Eclipse.app --args -data'
+alias eclipsews='open -n -a /Applications/Eclipse\ RCP.app --args -data'
