@@ -1,1 +1,1 @@
-alias lsusb='ioreg -p IOUSB -b'
+alias ls='ls -GF'
