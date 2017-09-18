@@ -1,2 +1,2 @@
-PATH="$PATH:/usr/local/gocode/bin"
-GOPATH="/usr/local/gocode";export GOPATH
+GOPATH="/Users/donaldh/go";export GOPATH
+PATH="$PATH:$GOPATH/bin"
