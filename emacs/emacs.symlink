@@ -17,7 +17,7 @@
  '(nxml-slash-auto-complete-flag t)
  '(package-selected-packages
    (quote
-    (pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode erc-hl-nicks go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
+    (pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
