@@ -30,6 +30,8 @@
      (js . t)
      (restclient . t)
      (python . t))))
+ '(org-confirm-babel-evaluate nil)
+ '(org-support-shift-select t)
  '(package-selected-packages
    (quote
     (ox-twbs ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
