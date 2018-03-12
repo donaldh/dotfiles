@@ -31,6 +31,7 @@
      (restclient . t)
      (python . t))))
  '(org-confirm-babel-evaluate nil)
+ '(org-src-fontify-natively t)
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
