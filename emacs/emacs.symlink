@@ -15,9 +15,24 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(nxml-slash-auto-complete-flag t)
+ '(org-babel-load-languages
+   (quote
+    ((sqlite . t)
+     (makefile . t)
+     (plantuml . t)
+     (sh . t)
+     (perl . t)
+     (emacs-lisp . t)
+     (C . t)
+     (css . t)
+     (dot . t)
+     (java . t)
+     (js . t)
+     (restclient . t)
+     (python . t))))
  '(package-selected-packages
    (quote
-    (pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
+    (ox-twbs ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
@@ -69,5 +84,6 @@
 ;; Autoloads
 (add-to-list 'load-path "~/.emacs.d/local")
 (autoload 'yang-mode "yang-mode" "Major mode for editing YANG models." t)
+(autoload 'ob-restclient "ob-restclient" "Restclient in Org mode." t)
 (add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
