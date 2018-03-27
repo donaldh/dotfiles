@@ -22,6 +22,7 @@
      (plantuml . t)
      (sh . t)
      (perl . t)
+     (perl6 . t)
      (emacs-lisp . t)
      (C . t)
      (css . t)
@@ -35,7 +36,7 @@
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
-    (htmlize ox-twbs ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
+    (org-page htmlize ox-twbs ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
@@ -88,5 +89,6 @@
 (add-to-list 'load-path "~/.emacs.d/local")
 (autoload 'yang-mode "yang-mode" "Major mode for editing YANG models." t)
 (autoload 'ob-restclient "ob-restclient" "Restclient in Org mode." t)
+(autoload 'ob-perl6 "ob-perl6" "Perl 6 in Org mode." t)
 (add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
