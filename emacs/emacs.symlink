@@ -50,7 +50,7 @@
  '(default ((t (:weight normal :height 120 :family "SF Mono")))))
 
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
 ;; Keys
