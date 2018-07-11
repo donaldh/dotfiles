@@ -73,16 +73,9 @@
 (setq web-mode-script-padding 2)
 (setq web-mode-style-padding 2)
 (setq web-mode-markup-indent-offset 2)
-
-;; erc with socks proxy
-(defun cisco-erc ()
-  "Run erc with cisco socks server"
-  (interactive)
-  (setq socks-noproxy '("localhost"))
-  (require 'socks)
-  (setq erc-server-connect-function 'socks-open-network-stream)
-  (setq socks-server (list "proxy-ams-1" "proxy-ams-1.cisco.com" 1080 5))
-  (erc)
+(setq web-mode-engines-alist
+      '(("go" . "\\.tpl")
+      )
 )
 
 ;; Autoloads
@@ -94,9 +87,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
 
 ;; org-page publishing
 (require 'org-page)
 (setq op/repository-directory "~/git/wtf")
 (setq op/site-domain "http://donaldh.wtf/")
-
