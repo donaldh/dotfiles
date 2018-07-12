@@ -1,3 +1,5 @@
+;; -*- emacs-lisp -*-
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -20,7 +22,6 @@
     ((sqlite . t)
      (makefile . t)
      (plantuml . t)
-     (sh . t)
      (perl . t)
      (perl6 . t)
      (emacs-lisp . t)
@@ -36,7 +37,7 @@
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
-    (ack ensime scala-mode salt-mode org-page htmlize ox-twbs ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
+    (easy-hugo ack ensime scala-mode salt-mode org-page htmlize ox-twbs ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit swift-mode yaml-mode perl6-mode)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
@@ -93,3 +94,7 @@
 (require 'org-page)
 (setq op/repository-directory "~/git/wtf")
 (setq op/site-domain "http://donaldh.wtf/")
+
+;; easy-hugo config
+(setq easy-hugo-basedir "~/git/donaldh.wtf/")
+(setq easy-hugo-url "http://donaldh.wtf")
