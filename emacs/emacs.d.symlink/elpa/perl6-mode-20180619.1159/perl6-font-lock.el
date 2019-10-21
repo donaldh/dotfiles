@@ -42,12 +42,8 @@
   "Face for exception keywords in Perl 6."
   :group 'perl6-faces)
 
-(defface perl6-module '((t :inherit font-lock-keyword-face))
-  "Face for module keywords in Perl 6."
-  :group 'perl6-faces)
-
-(defface perl6-routine '((t :inherit font-lock-keyword-face))
-  "Face for routine keywords in Perl 6."
+(defface perl6-declare '((t :inherit font-lock-keyword-face))
+  "Face for declaration keywords in Perl 6."
   :group 'perl6-faces)
 
 (defface perl6-include '((t :inherit font-lock-keyword-face))
@@ -153,15 +149,16 @@
                   (and (regex "[^[:digit:]\[\{\('\",:[:space:]]")
                        (0+ (regex "[^\[\{\('\",:[:space:]]"))
                        (or "«" "<<")))))
-        (routine
-         . ,(rx (or "macro" "sub" "submethod" "method" "multi" "proto" "only"
-                    "category")))
-        (module
-         . ,(rx (or "module" "class" "role" "package" "enum" "grammar" "slang"
-                    "subset")))
+        (pre-declare
+         . ,(rx (or "multi" "proto" "only")))
+        (declare
+         . ,(rx (or "macro" "sub" "submethod" "method" "category"
+                    "module" "class" "role" "package" "enum" "grammar"
+                    "slang" "subset")))
         (rule . ,(rx (or "regex" "rule" "token")))
-        (include . ,(rx (or "use" "require")))
-        (conditional . ,(rx (or "if" "else" "elsif" "unless")))
+        (include . ,(rx (or "use" "require unit")))
+        (conditional . ,(rx (or "if" "else" "elsif" "unless" "with"
+                                "orwith" "without")))
         (scope . ,(rx (or "let" "my" "our" "state" "temp" "has" "constant")))
         (loop . ,(rx (or "for" "loop" "repeat" "while" "until" "gather" "given")))
         (flow-control
@@ -218,14 +215,14 @@
          . ,(rx (or "Object" "Any" "Junction" "Whatever" "Capture" "Match"
                     "Signature" "Proxy" "Matcher" "Package" "Module" "Class"
                     "Grammar" "Scalar" "Array" "Hash" "KeyHash" "KeySet" "KeyBag"
-                    "Pair" "List" "Seq" "Range" "Set" "Bag" "Mapping" "Void"
+                    "Pair" "List" "Seq" "Range" "Set" "Bag" "BagHash" "Mapping" "Void"
                     "Undef" "Failure" "Exception" "Code" "Block" "Routine" "Sub"
-                    "Macro" "Method" "Submethod" "Regex" "Str" "Blob" "Char"
+                    "Macro" "Method" "Submethod" "Regex" "Str" "Blob" "Char" "Map"
                     "Byte" "Parcel" "Codepoint" "Grapheme" "StrPos" "StrLen"
                     "Version" "Num" "Complex" "Bit" "True" "False" "Order" "Same"
                     "Less" "More" "Increasing" "Decreasing" "Ordered" "Callable"
                     "AnyChar" "Positional" "Associative" "Ordering" "KeyExtractor"
-                    "Comparator" "OrderingPair" "IO" "KitchenSink" "Role" "Int"
+                    "Comparator" "OrderingPair" "IO" "KitchenSink" "Role" "Int" "Bool"
                     "Rat" "Buf" "UInt" "Abstraction" "Numeric" "Real" "Nil" "Mu")))
         (version . ,(rx "v" (1+ digit) (0+ "." (or "*" (1+ digit))) (opt "+")))
         (number
@@ -386,7 +383,8 @@ OPEN-ANGLES is the opening delimiter (e.g. \"«\" or \"<<\")."
            (quote-beg (- (point) angle-length))
            (line-beg (point-at-bol)))
       (when
-          (and (not (or (looking-at "[-=]")
+          (and (not (or (looking-at (rx-to-string `(or "=" (= 2 (char "-=")))))
+                        (looking-at (rx-to-string `(and (** 1 2 "-") ,close-angle)))
                         (looking-back (rx-to-string `(and (char "+~=!") ,open-angle)) 2)))
                (or (not (looking-at "[\s\n]"))
                    (not (looking-back (rx-to-string `(and (char "\s\n") ,open-angle)) 2))
@@ -436,15 +434,15 @@ Takes arguments START and END which delimit the region to propertize."
       ;; comments
       ((rx "#")
        (0 (ignore (perl6-syntax-propertize-comment end))))
-      ;; angle-bracketed quoting construct
-      ((rx (or (1+ "<") (1+ "«")))
-       (0 (ignore (perl6-syntax-propertize-angles (match-string 0)))))
       ;; postfix hyper operators
       ((perl6-rx (or identifier "]" ")") (group (or "»" ">>")))
        (0 nil))
       ;; other metaoperators like (-), R=>, [*], X~, »+«
       ((perl6-rx (or set-operator rsxz-operator reduce-operator hyper-operator))
        (0 (ignore (perl6-add-font-lock-hint 'perl6-metaoperator 0))))
+      ;; angle-bracketed quoting construct
+      ((rx (or (1+ "<") (1+ "«")))
+       (0 (ignore (perl6-syntax-propertize-angles (match-string 0)))))
       ;; backslashes outside strings/comments are punctuation, not escapes
       ((rx "\\")
        (0 (ignore (perl6-syntax-propertize-backslash))))
@@ -561,19 +559,25 @@ LIMIT can be used to bound the search."
      (2 'perl6-type-constraint nil t)
      (3 'perl6-type-property nil t))
     ;; method calls like $foo.bar or $hlagh.^methods
-    (,(perl6-rx (group (any ".^")) (group identifier symbol-end))
+    (,(perl6-rx (group (any ".^?")) (group identifier symbol-end))
      (1 'perl6-operator)
      (2 'perl6-identifier))
     ;; autoquoting fat arrow, foo => $bar
     (,(perl6-rx (group (symbol identifier)) (1+ space) (group "=>"))
      (1 'perl6-string)
      (2 'perl6-operator))
-    ;; regex/rule/token keywords
-    (,(perl6-rx symbol-start rule)
-     (0 'perl6-routine)
-     ;; anything immediately following it (even Q) is just an identifier
-     (,(perl6-rx (1+ space) (group identifier))
-      nil nil (1 'perl6-identifier)))
+    ;; "proto foo", "proto sub foo", etc
+    (,(perl6-rx (group (symbol pre-declare))
+                (opt (1+ space) (group (symbol declare)))
+                (opt (1+ space) (group identifier)))
+     (1 'perl6-declare)
+     (2 'perl6-declare nil t)
+     (3 'perl6-identifier nil t))
+    ;; "sub foo"
+    (,(perl6-rx (group (symbol declare))
+                (opt (1+ space) (group identifier)))
+     (1 'perl6-declare)
+     (2 'perl6-identifier nil t))
     ;; high-level types (Scalar, Class, Str, etc)
     (,(perl6-rx (group symbol-start high-type) "(") 1 'perl6-type)
     ;; anything preceding an open-paren is just an identifier
@@ -596,14 +600,10 @@ LIMIT can be used to bound the search."
     (,(perl6-rx (symbol phaser)) 0 'perl6-phaser)
     ;; die, fail, try...
     (,(perl6-rx (symbol exception)) 0 'perl6-exception)
-    ;; module, class, role...
-    (,(perl6-rx (symbol module)) 0 'perl6-module)
     ;; let, my, our...
     (,(perl6-rx (symbol scope)) 0 'perl6-scope)
     ;; if, else, elsif...
     (,(perl6-rx (symbol conditional)) 0 'perl6-conditional)
-    ;; macro, sub, method...
-    (,(perl6-rx (symbol routine)) 0 'perl6-routine)
     ;; use, require...
     (,(perl6-rx (symbol include)) 0 'perl6-include)
     ;; for, loop, repeat...

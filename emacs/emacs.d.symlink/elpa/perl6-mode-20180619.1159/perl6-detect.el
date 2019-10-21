@@ -14,12 +14,13 @@
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.p[lm]?6\\'" . perl6-mode))
+(add-to-list 'auto-mode-alist '("\\.nqp\\'"     . perl6-mode))
 
 ;;;###autoload
 (defconst perl6-magic-pattern
   (rx line-start
       (0+ space)
-      (or (and "use" (0+ space) "v6")
+      (or (and "use" (1+ space) "v6")
           (and (opt (and (or "my" "our") (1+ space)))
                (or "module" "class" "role" "grammar" "enum" "slang" "subset")))))
 

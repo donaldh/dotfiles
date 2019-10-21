@@ -41,6 +41,7 @@
 (require 'perl6-detect)
 (require 'perl6-font-lock)
 (require 'perl6-indent)
+(require 'perl6-imenu)
 
 ;;;###autoload
 (define-derived-mode perl6-mode prog-mode "Perl6"
@@ -50,12 +51,18 @@
   (add-hook 'syntax-propertize-extend-region-functions #'syntax-propertize-multiline nil 'local)
   (setq-local font-lock-syntactic-face-function #'perl6-font-lock-syntactic-face)
   (setq-local font-lock-defaults '(perl6-font-lock-keywords nil nil))
+  ;; Add imenu support for perl6-mode.  Note that imenu-generic-expression
+  ;; is buffer-local, so we don't need a local-variable for it.
+  (add-hook 'perl6-mode-hook 'imenu-add-menubar-index)
+  (setq imenu-generic-expression perl6-imenu-generic-expression
+      imenu-case-fold-search nil)
   ;; Comments
   (setq-local comment-start "#")
   (setq-local comment-start-skip "#+ *")
   (setq-local comment-use-syntax t)
   (setq-local comment-end "")
-  ;; Indentation
+  ;; Indentation (see SMIE in the Emacs manual)
+  ;; TODO add rules for HEREDOC indentation
   (smie-setup perl6-smie-grammar #'perl6-smie-rules
               :forward-token #'perl6-smie--forward-token
               :backward-token #'perl6-smie--backward-token))
