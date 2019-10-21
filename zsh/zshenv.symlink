@@ -2,11 +2,6 @@
 
 export DOT=$HOME/.dotfiles
 
-path=(
-	$path
-	~/.rakudobrew/bin(N)
-)
-
 for file in $DOT/*/*.zshenv
 do
     source $file
