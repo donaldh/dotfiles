@@ -1,5 +1,6 @@
 path=(
         $path
+        ~/.rakudobrew/bin(N)
         ~/.rakudobrew/shims(N)
 )
 
