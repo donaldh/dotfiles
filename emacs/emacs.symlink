@@ -24,6 +24,7 @@
      (plantuml . t)
      (perl . t)
      (perl6 . t)
+     (raku . t)
      (emacs-lisp . t)
      (C . t)
      (css . t)
