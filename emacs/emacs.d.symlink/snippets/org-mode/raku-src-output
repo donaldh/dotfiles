@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Org mode Raku source template
+# key: raku
+# --
+#+begin_src raku :results output
+$0
+#+end_src

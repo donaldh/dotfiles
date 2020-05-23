@@ -33,6 +33,10 @@
      (js . t)
      (restclient . t)
      (python . t))))
+     (python . t)
+     (shell . t)
+     (R . t)
+     (latex . t)))
  '(org-confirm-babel-evaluate nil)
  '(org-src-fontify-natively t)
  '(org-support-shift-select t)
@@ -99,3 +103,6 @@
 ;; easy-hugo config
 (setq easy-hugo-basedir "~/git/donaldh.wtf/")
 (setq easy-hugo-url "http://donaldh.wtf")
+
+;; yasnippets
+(yas-global-mode t)
