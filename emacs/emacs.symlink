@@ -93,11 +93,6 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
 
-;; org-page publishing
-(require 'org-page)
-(setq op/repository-directory "~/git/wtf")
-(setq op/site-domain "http://donaldh.wtf/")
-
 ;; easy-hugo config
 (setq easy-hugo-basedir "~/git/donaldh.wtf/")
 (setq easy-hugo-url "http://donaldh.wtf")
