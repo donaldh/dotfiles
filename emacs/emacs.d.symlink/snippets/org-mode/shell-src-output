@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Org mode Shell source template
-# key: sh
+# key: <sh
 # --
 #+begin_src sh :results output
 $0

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Org mode GraphViz source template
+# key: <graph
+# --
+#!+begin_src dot :file $1 :exports all
+digraph $1 {
+$0
+}
+#+end_src
