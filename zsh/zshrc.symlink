@@ -9,3 +9,6 @@ do
 done
 
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='%m$ ' && return
+
+autoload -Uz compinit
+compinit
