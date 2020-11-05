@@ -38,13 +38,12 @@
  '(org-src-fontify-natively t)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(tide wsd-mode docker jq-mode yasnippet ansible diff-hl sicp raku-mode ack ensime scala-mode htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(transient tablist json-mode rtags-xref flycheck-irony company-irony-c-headers company-irony company-c-headers cpputils-cmake cmake-mode cmake-project flycheck-rtags helm-rtags ac-helm company-rtags company rtags flycheck cmake-ide rfc-mode f tide wsd-mode docker jq-mode yasnippet ansible diff-hl sicp raku-mode ack ensime scala-mode htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
  '(visible-bell t)
-; '(wsd-base-url "http://wwwin-wsd.cisco.com:1086/")
  '(wsd-style "qsd"))
 
 (custom-set-faces
@@ -104,8 +103,9 @@
 ;; yasnippets
 (yas-global-mode t)
 
+;;
 ;; typescript
-
+;;
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -127,3 +127,38 @@
 ;; enable typescript-tslint checker
 (require 'flycheck)
 (flycheck-add-mode 'typescript-tslint 'web-mode)
+
+;;
+;; esp-idf cmake config
+;;
+(require 'irony)
+(require 'flycheck)
+(require 'flycheck-irony)
+(require 'company)
+(require 'company-irony)
+(require 'cpputils-cmake)
+(require 'rtags)
+(require 'rtags-xref)
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (irony-mode)
+            (flycheck-mode)
+            (flycheck-select-checker 'irony)
+            (if (derived-mode-p 'c-mode 'c++-mode)
+                (cppcm-reload-all))
+            (rtags-start-process-unless-running)
+            (rtags-enable-standard-keybindings)
+            (rtags-xref-enable)
+            ))
+
+(add-hook 'irony-mode-hook
+          (lambda ()
+            (setq irony-additional-clang-options
+                  '("-nobuiltininc"
+                    "-I/Users/donaldh/.espressif/tools/xtensa-esp32s2-elf/esp-2020r3-8.4.0/xtensa-esp32s2-elf/xtensa-esp32s2-elf/include"
+                    "-I/Users/donaldh/.espressif/tools/xtensa-esp32s2-elf/esp-2020r3-8.4.0/xtensa-esp32s2-elf/lib/gcc/xtensa-esp32s2-elf/8.4.0/include"
+                    ))
+            (irony-cdb-autosetup-compile-options)
+            ))
+;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
