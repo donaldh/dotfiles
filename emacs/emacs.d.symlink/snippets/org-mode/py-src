@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Org mode Python source template
+# key: <py
+# --
+#+begin_src python :results output
+$0
+#+end_src

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Tangle header
+# key: :t
+# --
+:tangle $0
