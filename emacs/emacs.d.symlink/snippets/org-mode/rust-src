@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: rust source
+# key: <rust
+# --
+#+begin_src rust
+$0
+#+end_src

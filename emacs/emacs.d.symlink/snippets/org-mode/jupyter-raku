@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Org mode Jupyter Raku source template
+# key: <jraku
+# --
+#+begin_src jupyter-raku :session raku
+$0
+#+end_src
