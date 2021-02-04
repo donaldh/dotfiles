@@ -20,6 +20,7 @@
  '(nxml-slash-auto-complete-flag t)
  '(org-babel-load-languages
    '((sqlite . t)
+     (sql . t)
      (makefile . t)
      (plantuml . t)
      (perl . t)
@@ -33,13 +34,14 @@
      (js . t)
      (restclient . t)
      (python . t)
-     (shell . t)))
+     (shell . t)
+     (jupyter . t)))
  '(org-confirm-babel-evaluate nil)
  '(org-src-fontify-natively t)
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(org-roam transient tablist json-mode rtags-xref flycheck-irony company-irony-c-headers company-irony company-c-headers cpputils-cmake cmake-mode cmake-project flycheck-rtags helm-rtags ac-helm company-rtags company rtags flycheck cmake-ide rfc-mode f tide wsd-mode docker jq-mode yasnippet ansible diff-hl sicp raku-mode ack ensime scala-mode htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(elpher lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode rtags-xref flycheck-irony company-irony-c-headers company-irony company-c-headers cpputils-cmake cmake-mode cmake-project flycheck-rtags helm-rtags ac-helm company-rtags company rtags flycheck cmake-ide rfc-mode f tide wsd-mode docker jq-mode yasnippet ansible diff-hl sicp raku-mode ack ensime scala-mode htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
@@ -60,6 +62,7 @@
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 ;(package-initialize)
 
 ;; Keys
@@ -168,3 +171,6 @@
 (add-hook 'org-mode-hook
           '(lambda ()
              (define-key org-mode-map "\M-h" nil)))
+
+(unless (display-graphic-p)
+  (menu-bar-mode -1))
