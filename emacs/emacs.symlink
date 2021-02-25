@@ -38,6 +38,7 @@
      (jupyter . t)))
  '(org-confirm-babel-evaluate nil)
  '(org-src-fontify-natively t)
+ '(org-src-preserve-indentation t)
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
