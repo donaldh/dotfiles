@@ -68,6 +68,7 @@
 
 ;; Keys
 (setq mac-command-modifier 'meta)
+(setq mac-right-command-modifier 'super)
 (setq mac-option-modifier nil)
 (setq mac-right-option-modifier 'alt)
 (global-set-key [(meta h)] 'ns-do-hide-emacs)
