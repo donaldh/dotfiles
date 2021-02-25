@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: postgres psql source
+# key: <pg
+# --
+#+begin_src sql :engine postgresql :database postgres
+$0
+#+end_src
