@@ -35,6 +35,7 @@
      (restclient . t)
      (python . t)
      (shell . t)
+     (vega . t)
      (jupyter . t)))
  '(org-confirm-babel-evaluate nil)
  '(org-src-fontify-natively t)
