@@ -176,5 +176,9 @@
           '(lambda ()
              (define-key org-mode-map "\M-h" nil)))
 
+;; Hide menu bar in TTY
 (unless (display-graphic-p)
   (menu-bar-mode -1))
+
+;; Magit
+(add-hook 'after-save-hook 'magit-after-save-refresh-status)
