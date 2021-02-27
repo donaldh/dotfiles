@@ -36,8 +36,6 @@
 ;;; Code:
 (require 'ob)
 
-;;(add-to-list 'org-src-lang-modes '("kgt" . "json"))
-
 (defvar org-babel-default-header-args:kgt
   '((:results . "output") (:exports . "results"))
   "Default arguments to use when evaluating a kgt source block.")
@@ -62,15 +60,15 @@
 (defun org-babel-execute:kgt (body params)
   "Execute a block of Kgt code with org-babel.
 This function is called by `org-babel-execute-src-block'."
-  (let* ((cmdline (or (cdr (assq :cmdline params))
-		      (format "-T%s" (file-name-extension "test.svg"))))
-	 (cmd (or (cdr (assq :cmd params)) "kgt -l bnf -e rrutf8"))
+  (let* ((infmt (or (cdr (assq :in params)) "bnf"))
+         (outfmt (or (cdr (assq :out params)) "rrutf8"))
+	 (cmd (or (cdr (assq :cmd params)) "kgt"))
 	 (coding-system-for-read 'utf-8) ;use utf-8 with sub-processes
 	 (coding-system-for-write 'utf-8))
     (with-temp-buffer
       (insert
        (org-babel-eval
-        (concat cmd) (org-babel-expand-body:kgt body params)))
+        (concat cmd " -l " infmt " -e " outfmt) (org-babel-expand-body:kgt body params)))
       (buffer-string))))
 
 (defun org-babel-prep-session:kgt (_session _params)
