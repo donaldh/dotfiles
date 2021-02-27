@@ -1,0 +1,50 @@
+diff --git a/Formula/emacs.rb b/Formula/emacs.rb
+index 4b9a6b3431..0002f8ad1a 100644
+--- a/Formula/emacs.rb
++++ b/Formula/emacs.rb
+@@ -43,6 +43,8 @@ class Emacs < Formula
+   depends_on "pkg-config" => :build
+   depends_on "gnutls"
+   depends_on "jansson"
++  depends_on "imagemagick"
++  depends_on "librsvg"
+ 
+   uses_from_macos "libxml2"
+   uses_from_macos "ncurses"
+@@ -58,6 +60,7 @@ class Emacs < Formula
+     ENV["ac_cv_func_aligned_alloc"] = "no" if MacOS.version == :mojave
+ 
+     args = %W[
++      --with-cocoa
+       --disable-silent-rules
+       --enable-locallisppath=#{HOMEBREW_PREFIX}/share/emacs/site-lisp
+       --infodir=#{info}/emacs
+@@ -67,9 +70,11 @@ class Emacs < Formula
+       --with-xml2
+       --without-dbus
+       --with-modules
+-      --without-ns
+-      --without-imagemagick
++      --with-imagemagick
++      --with-rsvg
+       --without-selinux
++      --with-ns
++      --disable-ns-self-contained
+     ]
+ 
+     if build.head?
+@@ -89,6 +94,14 @@ class Emacs < Formula
+     system "make"
+     system "make", "install"
+ 
++    prefix.install "nextstep/Emacs.app"
++
++    (bin/"emacs").unlink # Kill the existing symlink
++    (bin/"emacs").write <<~EOS
++      #!/bin/bash
++      exec #{prefix}/Emacs.app/Contents/MacOS/Emacs "$@"
++    EOS
++
+     # Follow MacPorts and don't install ctags from Emacs. This allows Vim
+     # and Emacs and ctags to play together without violence.
+     (bin/"ctags").unlink
