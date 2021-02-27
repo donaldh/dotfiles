@@ -36,6 +36,7 @@
      (python . t)
      (shell . t)
      (vega . t)
+     (kgt . t)
      (jupyter . t)))
  '(org-confirm-babel-evaluate nil)
  '(org-src-fontify-natively t)
