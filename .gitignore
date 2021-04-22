@@ -1,2 +1,8 @@
 *~
 target/
+org-roam.db
+.org-id-locations
+ac-comphist.dat
+eln-cache/
+**/eshell/history
+network-security.data
