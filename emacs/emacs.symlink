@@ -181,4 +181,5 @@
   (menu-bar-mode -1))
 
 ;; Magit
-(add-hook 'after-save-hook 'magit-after-save-refresh-status)
+(with-eval-after-load 'magit-mode
+  (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
