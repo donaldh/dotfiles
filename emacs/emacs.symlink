@@ -177,6 +177,15 @@
              (define-key org-mode-map "\M-h" nil)
              (setq org-return-follows-link t)
              ))
+(define-key global-map (kbd "s-b") (lambda () (interactive) (org-capture nil "b")))
+(setq org-capture-templates
+      '(("b" "Bookmarks" entry
+         (file+headline "~/.bookmarks.org" "Bookmarks")
+         "** %(org-cliplink-capture)%?\n" :unnarrowed t)
+        ("t" "Tasks" entry
+         (file+headline "~/.notes.org" "Tasks")
+         "** TODO %?\n  %u\n  %a")
+        ))
 
 ;; Hide menu bar in TTY
 (unless (display-graphic-p)
