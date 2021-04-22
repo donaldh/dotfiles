@@ -1,0 +1,5 @@
+;; -*- emacs-lisp -*-
+
+(setq user-mail-address "donald@sealgair.com"
+      user-full-name "Donald Hunter"
+      gnus-select-method '(nntp "nntp.lore.kernel.org"))
