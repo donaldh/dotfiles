@@ -1,6 +1,6 @@
 [user]
 	name = Donald Hunter
-	email = donaldh@cisco.com
+	email = donald.hunter@redhat.com
 [core]
 	autocrlf = input
 	ignorecase = false
