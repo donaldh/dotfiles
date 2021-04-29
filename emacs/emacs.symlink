@@ -47,6 +47,7 @@
    '(org-cliplink shx elpher lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode rtags-xref flycheck-irony company-irony-c-headers company-irony company-c-headers cpputils-cmake cmake-mode cmake-project flycheck-rtags helm-rtags ac-helm company-rtags company rtags flycheck cmake-ide rfc-mode f tide wsd-mode docker jq-mode yasnippet ansible diff-hl sicp raku-mode ack ensime scala-mode htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
+ '(split-height-threshold 60)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
  '(visible-bell t)
