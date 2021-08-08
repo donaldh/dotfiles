@@ -19,3 +19,5 @@
 	default = simple
 [gitreview]
 	username = donaldhunter
+[pull]
+	ff = only
