@@ -18,6 +18,7 @@
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(lsp-ui-sideline-show-hover 'y)
  '(mouse-wheel-scroll-amount '(1 ((shift) . hscroll) ((meta))))
  '(nxml-slash-auto-complete-flag t)
  '(org-babel-load-languages
@@ -135,7 +136,7 @@
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 (add-hook 'web-mode-hook
-          (lambda ()
+          #'(lambda ()
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (setup-tide-mode))))
 ;; enable typescript-tslint checker
@@ -154,7 +155,7 @@
 ;; org-mode
 ;;
 (add-hook 'org-mode-hook
-          '(lambda ()
+          #'(lambda ()
              (define-key org-mode-map "\M-h" nil)
              (setq org-return-follows-link t)
              ))
