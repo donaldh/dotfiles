@@ -62,7 +62,7 @@
 ;;   package declaration.
 
 ;;; Code:
-(require 'org)
+;(require 'org)
 (require 'ob)
 (require 'ob-eval)
 (require 'ob-ref)
