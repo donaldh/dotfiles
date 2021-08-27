@@ -49,7 +49,7 @@
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode company-c-headers cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode docker jq-mode yasnippet ansible diff-hl sicp raku-mode ack ensime scala-mode htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode company-c-headers cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode docker jq-mode yasnippet ansible diff-hl sicp raku-mode ack ensime scala-mode htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(split-height-threshold 60)
@@ -150,6 +150,8 @@
 (require 'lsp-mode)
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'c-mode-common-hook #'lsp-deferred)
+(add-hook 'java-mode-hook #'lsp-deferred)
+(add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp-deferred)))
 
 ;;
 ;; org-mode
