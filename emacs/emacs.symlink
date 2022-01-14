@@ -67,7 +67,8 @@
  '(default ((t (:weight normal :height 120 :family "SF Mono"))))
  '(diff-hl-change ((t (:background "blue" :foreground "yellow"))))
  '(diff-hl-delete ((t (:inherit diff-removed :foreground "red" :weight bold))))
- '(diff-hl-insert ((t (:inherit diff-added :foreground "green")))))
+ '(diff-hl-insert ((t (:inherit diff-added :foreground "green"))))
+ '(fixed-pitch ((t (:family "SF Mono")))))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
