@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: graphviz dot
+# key: <dot
+# --
+#+begin_src dot :file $1.png :tangle $1.txt :exports results
+$0
+#+end_src

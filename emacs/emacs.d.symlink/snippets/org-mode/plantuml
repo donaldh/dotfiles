@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: plantuml
+# key: <plantuml
+# --
+#+begin_src plantuml :file $1.png :tangle $1.txt :exports results
+$0
+#+end_src
