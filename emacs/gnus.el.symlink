@@ -2,4 +2,6 @@
 
 (setq user-mail-address "donald@sealgair.com"
       user-full-name "Donald Hunter"
+      gnus-home-score-file "kernel.org.SCORE"
       gnus-select-method '(nntp "nntp.lore.kernel.org"))
+
