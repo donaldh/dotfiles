@@ -3,5 +3,12 @@
 (setq user-mail-address "donald@sealgair.com"
       user-full-name "Donald Hunter"
       gnus-home-score-file "kernel.org.SCORE"
-      gnus-select-method '(nntp "nntp.lore.kernel.org"))
-
+      gnus-select-method '(nntp "nntp.lore.kernel.org")
+      ;; gnus-secondary-select-methods '((nnimap "gmail"
+      ;;                                         (nnimap-address "imap.gmail.com")
+      ;;                                         (nnimap-server-port "imaps")
+      ;;                                         (nnimap-stream ssl)))
+      smtpmail-stream-type 'ssl
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 465
+      )
