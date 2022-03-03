@@ -218,5 +218,7 @@
 (define-key global-map (kbd "A-<up>") 'scroll-up-line)
 (define-key global-map (kbd "A-<down>") 'scroll-down-line)
 
+(add-hook 'image-mode-hook 'auto-revert-mode)
+
 ;; Server
 (server-start)
