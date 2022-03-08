@@ -185,9 +185,10 @@
   :initialization-options (lambda () ccls-initialization-options)
   :library-folders-fn ccls-library-folders-fn))
 
-(setq tramp-verbose 9)
-(setq lsp-log-io t)
 (setq lsp-lens-enable nil)
+
+;; (setq tramp-verbose 9)
+;; (setq lsp-log-io t)
 
 ;;
 ;; org-mode
