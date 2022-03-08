@@ -8,6 +8,7 @@
       ;;                                         (nnimap-address "imap.gmail.com")
       ;;                                         (nnimap-server-port "imaps")
       ;;                                         (nnimap-stream ssl)))
+      message-send-mail-function 'smtpmail-send-it
       smtpmail-stream-type 'ssl
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 465
