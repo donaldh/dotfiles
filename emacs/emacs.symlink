@@ -187,6 +187,7 @@
 
 (setq tramp-verbose 9)
 (setq lsp-log-io t)
+(setq lsp-lens-enable nil)
 
 ;;
 ;; org-mode
