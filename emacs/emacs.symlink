@@ -85,6 +85,8 @@
 (global-set-key [(meta \`)] 'other-frame)
 (global-set-key [wheel-left] 'ignore)
 (global-set-key [wheel-right] 'ignore)
+(global-set-key (kbd "C-x /") 'point-to-register)
+(global-set-key (kbd "C-x j") 'jump-to-register)
 
 ;; Text
 (setq-default show-trailing-whitespace t)
