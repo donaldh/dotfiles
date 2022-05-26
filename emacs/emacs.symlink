@@ -7,6 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(browse-url-browser-function 'browse-url-default-macosx-browser)
+ '(c-basic-offset 4)
  '(canlock-password "cddc0659a73575278ba7e32ae9b8520ebf5162e8")
  '(column-number-mode t)
  '(custom-enabled-themes '(tango-dark))
