@@ -152,6 +152,7 @@
 ;;
 
 (with-eval-after-load 'dap-go
+  (setq dap-ui-variable-length 200)
   (dap-register-debug-template "Go Connect fedora dlv"
                                (list :type "go"
                                      :request "launch"
