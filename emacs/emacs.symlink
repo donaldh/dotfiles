@@ -42,7 +42,8 @@
      (go . t)
      (vega . t)
      (kgt . t)
-     (http . t)))
+     (http . t)
+     (rust . t)))
  '(org-confirm-babel-evaluate nil)
  '(org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
  '(org-src-fontify-natively t)
@@ -50,7 +51,7 @@
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(ob-rust graphviz-dot-mode org-roam-ui ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(split-height-threshold 60)
