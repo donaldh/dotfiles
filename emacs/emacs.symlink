@@ -213,10 +213,6 @@
          "** TODO %?\n  %u\n  %a")
         ))
 
-;; Hide menu bar in TTY
-(unless (display-graphic-p)
-  (menu-bar-mode -1))
-
 ;; Magit
 (with-eval-after-load 'magit-mode
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
@@ -224,6 +220,16 @@
 ;; Precise scrolling
 (define-key global-map (kbd "A-<up>") 'scroll-up-line)
 (define-key global-map (kbd "A-<down>") 'scroll-down-line)
+
+;; TTY Emacs
+(unless (display-graphic-p)
+  ;; remove the menu bar
+  (menu-bar-mode -1))
+  ;; activate mouse-based scrolling
+  (xterm-mouse-mode 1)
+  (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
+  (global-set-key (kbd "<mouse-5>") 'scroll-up-line)
+  )
 
 (add-hook 'image-mode-hook 'auto-revert-mode)
 
