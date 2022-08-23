@@ -173,7 +173,12 @@
             (require 'dap-go)
             (set-fringe-style '(nil . 0))
             (lsp-deferred)))
-(add-hook 'c-mode-common-hook #'lsp-deferred)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (setq c-basic-offset 8)
+            (setq indent-tabs-mode t)
+            (setq tab-width 8)
+            (lsp-deferred)))
 (add-hook 'java-mode-hook #'lsp-deferred)
 (add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp-deferred)))
 
