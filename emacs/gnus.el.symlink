@@ -1,13 +1,19 @@
 ;; -*- emacs-lisp -*-
 
-(setq user-mail-address "donald@sealgair.com"
+(setq user-mail-address "donald.hunter@gmail.com"
       user-full-name "Donald Hunter"
       gnus-home-score-file "kernel.org.SCORE"
       gnus-select-method '(nntp "nntp.lore.kernel.org")
-      ;; gnus-secondary-select-methods '((nnimap "gmail"
-      ;;                                         (nnimap-address "imap.gmail.com")
-      ;;                                         (nnimap-server-port "imaps")
-      ;;                                         (nnimap-stream ssl)))
+      gnus-secondary-select-methods '((nntp "news.eternal-september.org"
+                                            )
+                                      (nnimap "gmail"
+                                              (nnimap-address "imap.gmail.com")
+                                              (nnimap-server-port "imaps")
+                                              (nnimap-stream ssl))
+                                      (nnimap "redhat"
+                                              (nnimap-address "imap.gmail.com")
+                                              (nnimap-server-port "imaps")
+                                              (nnimap-stream ssl)))
       message-send-mail-function 'smtpmail-send-it
       smtpmail-stream-type 'ssl
       smtpmail-smtp-server "smtp.gmail.com"
