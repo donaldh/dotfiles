@@ -19,6 +19,8 @@
  '(fringe-mode 0 nil (fringe))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(lsp-enable-file-watchers nil)
+ '(lsp-enable-indentation nil)
  '(lsp-ui-sideline-show-hover 'y)
  '(mouse-wheel-scroll-amount '(1 ((shift) . hscroll) ((meta))))
  '(nxml-slash-auto-complete-flag t)
