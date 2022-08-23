@@ -226,7 +226,7 @@
 ;; TTY Emacs
 (unless (display-graphic-p)
   ;; remove the menu bar
-  (menu-bar-mode -1))
+  (menu-bar-mode -1)
   ;; activate mouse-based scrolling
   (xterm-mouse-mode 1)
   (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
