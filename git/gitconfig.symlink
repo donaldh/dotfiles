@@ -1,6 +1,6 @@
 [user]
 	name = Donald Hunter
-	email = donald.hunter@redhat.com
+	email = donald.hunter@gmail.com
 [core]
 	autocrlf = input
 	ignorecase = false
@@ -21,3 +21,8 @@
 	username = donaldhunter
 [pull]
 	ff = only
+[sendemail]
+        smtpserver = smtp.gmail.com
+        smtpuser = donald.hunter@gmail.com
+        smtpencryption = ssl
+        smtpserverport = 465
