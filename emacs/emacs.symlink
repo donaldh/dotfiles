@@ -142,12 +142,12 @@
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 (add-hook 'web-mode-hook
-          #'(lambda ()
+          (lambda ()
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (setup-tide-mode))))
 ;; enable typescript-tslint checker
 (require 'flycheck)
-(flycheck-add-mode 'typescript-tslint 'web-mode)
+(flycheck-add-mode 'typescript-tslint #'web-mode)
 
 ;;
 ;; lsp-mode
@@ -205,15 +205,16 @@
 ;; org-mode
 ;;
 (add-hook 'org-mode-hook
-          #'(lambda ()
-             (define-key org-mode-map "\M-h" nil)
-             (setq org-return-follows-link t)
-             ))
+          (lambda ()
+            (define-key org-mode-map "\M-h" nil)
+            (setq org-return-follows-link t)
+            ))
 
 (add-hook 'org-capture-mode-hook
           (lambda () (org-roam-db-autosync-mode t)))
 
 (define-key global-map (kbd "s-b") (lambda () (interactive) (org-capture nil "b")))
+
 (setq org-capture-templates
       '(("b" "Bookmarks" entry
          (file+headline "~/.bookmarks.org" "Bookmarks")
@@ -222,6 +223,7 @@
          (file+headline "~/.notes.org" "Tasks")
          "** TODO %?\n  %u\n  %a")
         ))
+
 (setq org-roam-capture-templates
       '(("d" "default" plain "%?"
          :target (file+head "${slug}.org"
@@ -230,11 +232,11 @@
 
 ;; Magit
 (with-eval-after-load 'magit-mode
-  (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
+  (add-hook 'after-save-hook #'magit-after-save-refresh-status t))
 
 ;; Precise scrolling
-(define-key global-map (kbd "A-<up>") 'scroll-up-line)
-(define-key global-map (kbd "A-<down>") 'scroll-down-line)
+(define-key global-map (kbd "A-<up>") #'scroll-up-line)
+(define-key global-map (kbd "A-<down>") #'scroll-down-line)
 
 ;; TTY Emacs
 (unless (display-graphic-p)
@@ -242,11 +244,11 @@
   (menu-bar-mode -1)
   ;; activate mouse-based scrolling
   (xterm-mouse-mode 1)
-  (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
-  (global-set-key (kbd "<mouse-5>") 'scroll-up-line)
+  (global-set-key (kbd "<mouse-4>") #'scroll-down-line)
+  (global-set-key (kbd "<mouse-5>") #'scroll-up-line)
   )
 
-(add-hook 'image-mode-hook 'auto-revert-mode)
+(add-hook 'image-mode-hook #'auto-revert-mode)
 
 ;; Server
 (server-start)
