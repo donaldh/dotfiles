@@ -209,6 +209,10 @@
              (define-key org-mode-map "\M-h" nil)
              (setq org-return-follows-link t)
              ))
+
+(add-hook 'org-capture-mode-hook
+          (lambda () (org-roam-db-autosync-mode t)))
+
 (define-key global-map (kbd "s-b") (lambda () (interactive) (org-capture nil "b")))
 (setq org-capture-templates
       '(("b" "Bookmarks" entry
