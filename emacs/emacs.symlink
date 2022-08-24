@@ -218,6 +218,11 @@
          (file+headline "~/.notes.org" "Tasks")
          "** TODO %?\n  %u\n  %a")
         ))
+(setq org-roam-capture-templates
+      '(("d" "default" plain "%?"
+         :target (file+head "${slug}.org"
+                        "#+title: ${title}\n")
+         :unnarrowed t)))
 
 ;; Magit
 (with-eval-after-load 'magit-mode
