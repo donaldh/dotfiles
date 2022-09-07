@@ -250,5 +250,11 @@
 
 (add-hook 'image-mode-hook #'auto-revert-mode)
 
+;;
+(add-hook 'diff-mode-hook
+          (lambda ()
+            (define-key diff-mode-map "\M-h" nil)
+            ))
+
 ;; Server
 (server-start)
