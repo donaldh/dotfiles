@@ -207,6 +207,10 @@
 ;;
 (add-hook 'org-mode-hook
           (lambda ()
+            (require 'org-mobile)
+            (setq org-directory "~/org-roam")
+            (setq org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
+            (setq org-mobile-inbox-for-pull (concat org-directory "/inbox.org"))
             (define-key org-mode-map "\M-h" nil)
             (setq org-return-follows-link t)
             (turn-on-auto-fill)
