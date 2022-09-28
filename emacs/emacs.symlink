@@ -209,6 +209,7 @@
           (lambda ()
             (define-key org-mode-map "\M-h" nil)
             (setq org-return-follows-link t)
+            (turn-on-auto-fill)
             ))
 
 (add-hook 'org-capture-mode-hook
