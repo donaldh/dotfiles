@@ -242,7 +242,6 @@
     :base-directory "~/org-roam/"
     :publishing-function org-html-publish-to-html
     :publishing-directory "/usr/local/var/www/roam"
-    :with-title nil
     :section-numbers nil
     :with-toc nil
     :recursive t
