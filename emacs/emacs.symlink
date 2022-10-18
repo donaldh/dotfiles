@@ -53,7 +53,7 @@
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(gnuplot org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(tramp gnuplot org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(split-height-threshold 60)
@@ -183,23 +183,23 @@
 (add-hook 'java-mode-hook #'lsp-deferred)
 (add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp-deferred)))
 
-;; (require 'ccls)
-;; (lsp-register-client
-;;  (make-lsp-client
-;;   :new-connection (lsp-tramp-connection (lambda () (cons ccls-executable ccls-args)))
-;;   :major-modes '(c-mode c++-mode cuda-mode objc-mode)
-;;   :server-id 'ccls-remote
-;;   :remote? t
-;;   :multi-root nil
-;;   :notification-handlers
-;;   (lsp-ht ("$ccls/publishSkippedRanges" #'ccls--publish-skipped-ranges)
-;;           ("$ccls/publishSemanticHighlight" #'ccls--publish-semantic-highlight))
-;;   :initialization-options (lambda () ccls-initialization-options)
-;;   :library-folders-fn ccls-library-folders-fn))
+(require 'ccls)
+(lsp-register-client
+ (make-lsp-client
+  :new-connection (lsp-tramp-connection (lambda () (cons ccls-executable ccls-args)))
+  :major-modes '(c-mode c++-mode cuda-mode objc-mode)
+  :server-id 'ccls-remote
+  :remote? t
+  :multi-root nil
+  :notification-handlers
+  (lsp-ht ("$ccls/publishSkippedRanges" #'ccls--publish-skipped-ranges)
+          ("$ccls/publishSemanticHighlight" #'ccls--publish-semantic-highlight))
+  :initialization-options (lambda () ccls-initialization-options)
+  :library-folders-fn ccls-library-folders-fn))
 
 (setq lsp-lens-enable nil)
 
-;; (setq tramp-verbose 9)
+;; (setq tramp-verbose 10)
 ;; (setq lsp-log-io t)
 
 ;;
