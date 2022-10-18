@@ -279,5 +279,9 @@
             (define-key diff-mode-map "\M-h" nil)
             ))
 
+;; SuperCollider
+(add-to-list 'load-path "~/Library/Application Support/SuperCollider/downloaded-quarks/scel/el/")
+(require 'sclang)
+
 ;; Server
 (server-start)
