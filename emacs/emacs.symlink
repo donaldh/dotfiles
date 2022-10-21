@@ -271,9 +271,12 @@
   (global-set-key (kbd "<mouse-5>") #'scroll-up-line)
   )
 
+(setq ring-bell-function 'ignore)
+
+;; Image mode
 (add-hook 'image-mode-hook #'auto-revert-mode)
 
-;;
+;; Diff mode
 (add-hook 'diff-mode-hook
           (lambda ()
             (define-key diff-mode-map "\M-h" nil)
