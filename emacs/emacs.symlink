@@ -239,15 +239,22 @@
 (setq org-html-head-include-default-style nil)
 (setq org-publish-project-alist
            '(("roam"
-    :base-directory "~/org-roam/"
-    :publishing-function org-html-publish-to-html
-    :publishing-directory "/usr/local/var/www/roam"
-    :section-numbers nil
-    :with-toc nil
-    :recursive t
-    :html-head "<link rel=\"stylesheet\"
+              :base-directory "~/org-roam/"
+              :publishing-function org-html-publish-to-html
+              :publishing-directory "/usr/local/var/www/roam"
+              :section-numbers nil
+              :with-toc nil
+              :recursive t
+              :html-head "<link rel=\"stylesheet\"
                href=\"/donaldh-org.css\"
-               type=\"text/css\"/>")))
+               type=\"text/css\"/>")
+             ("roam-images"
+              :base-directory "~/org-roam/"
+              :publishing-function org-publish-attachment
+              :base-extension "png"
+              :publishing-directory "/usr/local/var/www/roam")
+             ("website"
+              :components ("roam" "roam-images"))))
 
 (with-eval-after-load 'org
   (add-to-list 'org-babel-default-header-args
