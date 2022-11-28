@@ -47,6 +47,7 @@
      (rust . t)
      (gnuplot . t)))
  '(org-confirm-babel-evaluate nil)
+ '(org-mobile-files '("/Users/donaldh/org-roam"))
  '(org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
  '(org-src-fontify-natively t)
  '(org-src-preserve-indentation t)
