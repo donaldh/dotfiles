@@ -17,6 +17,7 @@
  '(footnote-spaced-footnotes nil)
  '(frame-background-mode nil)
  '(fringe-mode 0 nil (fringe))
+ '(help-window-select t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(lsp-enable-file-watchers nil)
