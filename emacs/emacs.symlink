@@ -292,6 +292,7 @@
 ;; SuperCollider
 (add-to-list 'load-path "~/Library/Application Support/SuperCollider/downloaded-quarks/scel/el/")
 (require 'sclang)
+(define-key sclang-mode-map (kbd "s-.") (lambda () (interactive) (sclang-eval-expression "CmdPeriod.run")))
 
 ;; Server
 (server-start)
