@@ -26,6 +26,7 @@
  '(lsp-ui-sideline-show-hover 'y)
  '(mouse-wheel-scroll-amount '(1 ((shift) . hscroll) ((meta))))
  '(nxml-slash-auto-complete-flag t)
+ '(org-agenda-files '("/Users/donaldh/org-roam"))
  '(org-babel-load-languages
    '((sqlite . t)
      (sql . t)
