@@ -57,7 +57,7 @@
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(tramp gnuplot org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(eldoc-box mastodon slack ack-menu tramp gnuplot org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(split-height-threshold 60)
@@ -76,6 +76,7 @@
  '(diff-hl-change ((t (:background "blue" :foreground "yellow"))))
  '(diff-hl-delete ((t (:inherit diff-removed :foreground "red" :weight bold))))
  '(diff-hl-insert ((t (:inherit diff-added :foreground "green"))))
+ '(eglot-highlight-symbol-face ((t (:inherit bold :foreground "yellow"))))
  '(fixed-pitch ((t (:family "SF Mono")))))
 
 (require 'package)
@@ -155,57 +156,19 @@
 (flycheck-add-mode 'typescript-tslint #'web-mode)
 
 ;;
-;; lsp-mode
+;; eglot
 ;;
-
-(with-eval-after-load 'dap-go
-  (setq dap-ui-variable-length 200)
-  (dap-register-debug-template "Go Connect fedora dlv"
-                               (list :type "go"
-                                     :request "launch"
-                                     :name "fedora dlv"
-                                     :mode "remote"
-                                     :program nil
-                                     :host "192.168.1.115"
-                                     :port "39801"
-                                     :args nil
-                                     :env nil
-                                     :envFile nil)))
-
-(require 'lsp-mode)
 (add-hook 'go-mode-hook
           (lambda ()
-            (require 'dap-go)
             (set-fringe-style '(nil . 0))
-            (lsp-deferred)))
+            (eglot-ensure)))
+
 (add-hook 'c-mode-common-hook
           (lambda ()
             (setq c-basic-offset 8)
             (setq indent-tabs-mode t)
             (setq tab-width 8)
-            (lsp-deferred)))
-(add-hook 'java-mode-hook #'lsp-deferred)
-(add-hook 'python-mode-hook (lambda () (require 'lsp-pyright) (lsp-deferred)))
-
-(require 'ccls)
-(lsp-register-client
- (make-lsp-client
-  :new-connection (lsp-tramp-connection (lambda () (cons ccls-executable ccls-args)))
-  :major-modes '(c-mode c++-mode cuda-mode objc-mode)
-  :server-id 'ccls-remote
-  :remote? t
-  :multi-root nil
-  :notification-handlers
-  (lsp-ht ("$ccls/publishSkippedRanges" #'ccls--publish-skipped-ranges)
-          ("$ccls/publishSemanticHighlight" #'ccls--publish-semantic-highlight))
-  :initialization-options (lambda () ccls-initialization-options)
-  :library-folders-fn ccls-library-folders-fn))
-
-(setq lsp-lens-enable nil)
-
-;; (setq tramp-verbose 10)
-;; (setq lsp-log-io t)
-
+            (eglot-ensure)))
 ;;
 ;; org-mode
 ;;
