@@ -5,6 +5,7 @@
 	autocrlf = input
 	ignorecase = false
 	excludesfile = /Users/donaldh/.gitignore_global
+        abbrev = 12
 [color]
 	ui = auto
 [log]
@@ -26,3 +27,5 @@
         smtpuser = donald.hunter@gmail.com
         smtpencryption = ssl
         smtpserverport = 465
+[pretty]
+        fixes = Fixes: %h (\"%s\")
