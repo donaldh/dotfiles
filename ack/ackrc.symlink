@@ -1,1 +1,3 @@
+--ignore-dir=.ccls-cache
+--ignore-dir=output
 --follow
