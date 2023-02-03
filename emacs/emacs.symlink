@@ -34,6 +34,7 @@
      (plantuml . t)
      (perl . t)
      (perl6 . t)
+     (python . t)
      (raku . t)
      (emacs-lisp . t)
      (C . t)
