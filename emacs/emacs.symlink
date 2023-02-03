@@ -216,13 +216,18 @@
               :html-head "<link rel=\"stylesheet\"
                href=\"/donaldh-org.css\"
                type=\"text/css\"/>")
-             ("roam-images"
+             ("roam-resources"
               :base-directory "~/org-roam/"
               :publishing-function org-publish-attachment
-              :base-extension "png"
+              :base-extension "png\\|svg"
               :publishing-directory "/usr/local/var/www/roam")
+             ("css"
+              :base-directory "~/org-roam/"
+              :publishing-function org-publish-attachment
+              :base-extension "css"
+              :publishing-directory "/usr/local/var/www")
              ("website"
-              :components ("roam" "roam-images"))))
+              :components ("css" "roam" "roam-resources"))))
 
 (with-eval-after-load 'org
   (add-to-list 'org-babel-default-header-args
