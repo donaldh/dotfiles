@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: c-code
+# key: <c
+# --
+#+begin_src C :includes "<stdio.h> <string.h>"
+$0
+#+end_src
