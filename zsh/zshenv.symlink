@@ -11,3 +11,6 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
+. "$HOME/.cargo/env"
+
+SHELL_SESSIONS_DISABLE=1
