@@ -1,0 +1,35 @@
+# -*- mode: snippet -*-
+# name: advent-of-code
+# key: <advent
+# --
+---
+title: "2022 AoC Day $1 – $2"
+date: 2022-12-$1
+tags:
+  - raku
+categories:
+  - code
+  - advent
+comments: true
+---
+
+This is a solution to Advent of Code 2022 day $1, written in Raku.
+
+<!--more-->
+
+[[https://adventofcode.com/2022/day/$1]]
+
+** Part One
+
+#+begin_quote
+$0
+#+end_quote
+
+
+
+** Part Two
+
+#+begin_quote
+
+#+end_quote
+
