@@ -10,6 +10,7 @@ done
 
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='%m$ ' && return
 
+PS1="%{%F{green}%}%n@%m%{%F{white}%} %1~ %# "
 FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
 autoload -Uz compinit
