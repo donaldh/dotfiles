@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: gnuplot
+# key: <gnuplot
+# --
+#+plot: title:"${1:Example}"
+#+plot: ind:${2:1} deps:(${3:2})
+#+plot: type:2d
+#+plot: with:histograms
+#+plot: set:"xlabel '${4:x label}'"
+#+plot: set:"ylabel '${5:y label}'"
+#+plot: set:"yrange[0:]"
+#+plot: set:"style fill solid 1"
+#+plot: file:"$1.png"
