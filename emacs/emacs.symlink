@@ -12,6 +12,7 @@
  '(column-number-mode t)
  '(custom-enabled-themes '(tango-dark))
  '(default-frame-alist '((width . 160) (height . 96)))
+ '(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
  '(erc-fill-column 120)
  '(footnote-body-tag-spacing 1)
  '(footnote-spaced-footnotes nil)
@@ -58,8 +59,9 @@
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(eldoc-box mastodon slack ack-menu tramp gnuplot org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(vterm string-inflection org-ai org-modern ipcalc protobuf-mode eglot emacsql-sqlite emacsql-sqlite-builtin emacsql eldoc-box mastodon slack ack-menu tramp gnuplot org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
  '(scroll-bar-mode nil)
+ '(sentence-end-double-space nil)
  '(show-paren-mode t)
  '(split-height-threshold 60)
  '(tool-bar-mode nil)
@@ -78,6 +80,7 @@
  '(diff-hl-delete ((t (:inherit diff-removed :foreground "red" :weight bold))))
  '(diff-hl-insert ((t (:inherit diff-added :foreground "green"))))
  '(eglot-highlight-symbol-face ((t (:inherit bold :foreground "yellow"))))
+ '(eglot-mode-line ((t nil)))
  '(fixed-pitch ((t (:family "SF Mono")))))
 
 (require 'package)
@@ -170,6 +173,11 @@
             (setq indent-tabs-mode t)
             (setq tab-width 8)
             (eglot-ensure)))
+
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '((c-mode c-ts-mode c++-mode c++-ts-mode) . ("ccls"))))
+
 ;;
 ;; org-mode
 ;;
@@ -270,6 +278,9 @@
 ;; Mastodon
 (setq mastodon-instance-url "https://hachyderm.io"
       mastodon-active-user "donaldh")
+
+;; Company
+(global-company-mode)
 
 ;; Server
 (server-start)
