@@ -47,7 +47,7 @@ This function is called by `org-babel-execute-src-block'."
 (defun org-babel-variable-assignments:raku (params)
   "Return list of Raku statements assigning the block's variables."
   (mapcar
-   (lambda (pair) (org-babel-raku--var-to-raku (cdr pair) (car pair)))
+   (lambda (pair) (org-babel-raku--value-to-raku (cdr pair) (car pair)))
    (mapcar 'cdr (map-filter (lambda (k v) (eq :var k)) params))))
 
 ;; helper functions
