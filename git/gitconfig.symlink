@@ -29,3 +29,5 @@
         smtpserverport = 465
 [pretty]
         fixes = Fixes: %h (\"%s\")
+[init]
+	defaultBranch = main
