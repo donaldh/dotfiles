@@ -179,6 +179,19 @@
                '((c-mode c-ts-mode c++-mode c++-ts-mode) . ("ccls"))))
 
 ;;
+;; Process List
+;;
+(add-hook 'process-menu-mode-hook
+          (lambda ()
+            (setq tabulated-list-format [("Process" 40 t)
+			       ("PID"      7 t)
+			       ("Status"   7 t)
+			       ("Buffer"  40 t)
+			       ("TTY"     12 t)
+			       ("Thread"  12 t)
+			       ("Command"  0 t)])))
+
+;;
 ;; org-mode
 ;;
 (add-hook 'org-mode-hook
