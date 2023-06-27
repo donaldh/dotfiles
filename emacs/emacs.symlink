@@ -229,13 +229,18 @@
               :publishing-function org-publish-attachment
               :base-extension "png\\|svg"
               :publishing-directory "/usr/local/var/www/roam")
+             ("images"
+              :base-directory "~/org-roam/images"
+              :publishing-function org-publish-attachment
+              :base-extension "png\\|svg"
+              :publishing-directory "/usr/local/var/www/roam/images")
              ("css"
               :base-directory "~/org-roam/"
               :publishing-function org-publish-attachment
               :base-extension "css"
               :publishing-directory "/usr/local/var/www")
              ("website"
-              :components ("css" "roam" "roam-resources"))))
+              :components ("css" "roam" "images" "roam-resources"))))
 
 (with-eval-after-load 'org
   (add-to-list 'org-babel-default-header-args
