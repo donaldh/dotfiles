@@ -10,10 +10,67 @@
  '(c-basic-offset 4)
  '(canlock-password "cddc0659a73575278ba7e32ae9b8520ebf5162e8")
  '(column-number-mode t)
+ '(connection-local-criteria-alist
+   '(((:application tramp :protocol "flatpak")
+      tramp-container-connection-local-default-flatpak-profile)
+     ((:application tramp :machine "localhost") tramp-connection-local-darwin-ps-profile)
+     ((:application tramp :machine "imac") tramp-connection-local-darwin-ps-profile)
+     ((:application tramp) tramp-connection-local-default-system-profile
+      tramp-connection-local-default-shell-profile)))
+ '(connection-local-profile-alist
+   '((tramp-container-connection-local-default-flatpak-profile
+      (tramp-remote-path "/app/bin" tramp-default-remote-path "/bin" "/usr/bin" "/sbin"
+                         "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin"
+                         "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin"
+                         "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin"
+                         "/opt/local/bin"))
+     (tramp-connection-local-darwin-ps-profile
+      (tramp-process-attributes-ps-args "-acxww" "-o"
+                                        "pid,uid,user,gid,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                        "-o" "state=abcde" "-o"
+                                        "ppid,pgid,sess,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etime,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format (pid . number) (euid . number) (user . string)
+                                          (egid . number) (comm . 52) (state . 5)
+                                          (ppid . number) (pgrp . number) (sess . number)
+                                          (ttname . string) (tpgid . number) (minflt . number)
+                                          (majflt . number) (time . tramp-ps-time)
+                                          (pri . number) (nice . number) (vsize . number)
+                                          (rss . number) (etime . tramp-ps-time) (pcpu . number)
+                                          (pmem . number) (args)))
+     (tramp-connection-local-busybox-ps-profile
+      (tramp-process-attributes-ps-args "-o"
+                                        "pid,user,group,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                        "-o" "stat=abcde" "-o"
+                                        "ppid,pgid,tty,time,nice,etime,args")
+      (tramp-process-attributes-ps-format (pid . number) (user . string) (group . string)
+                                          (comm . 52) (state . 5) (ppid . number)
+                                          (pgrp . number) (ttname . string)
+                                          (time . tramp-ps-time) (nice . number)
+                                          (etime . tramp-ps-time) (args)))
+     (tramp-connection-local-bsd-ps-profile
+      (tramp-process-attributes-ps-args "-acxww" "-o"
+                                        "pid,euid,user,egid,egroup,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                        "-o"
+                                        "state,ppid,pgid,sid,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etimes,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format (pid . number) (euid . number) (user . string)
+                                          (egid . number) (group . string) (comm . 52)
+                                          (state . string) (ppid . number) (pgrp . number)
+                                          (sess . number) (ttname . string) (tpgid . number)
+                                          (minflt . number) (majflt . number)
+                                          (time . tramp-ps-time) (pri . number) (nice . number)
+                                          (vsize . number) (rss . number) (etime . number)
+                                          (pcpu . number) (pmem . number) (args)))
+     (tramp-connection-local-default-shell-profile (shell-file-name . "/bin/sh")
+                                                   (shell-command-switch . "-c"))
+     (tramp-connection-local-default-system-profile (path-separator . ":")
+                                                    (null-device . "/dev/null"))))
  '(custom-enabled-themes '(tango-dark))
  '(default-frame-alist '((width . 160) (height . 96)))
  '(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
  '(erc-fill-column 120)
+ '(exec-path
+   '("/usr/local/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin"
+     "/Applications/Emacs.app/Contents/MacOS/libexec"))
  '(footnote-body-tag-spacing 1)
  '(footnote-spaced-footnotes nil)
  '(frame-background-mode nil)
@@ -29,27 +86,9 @@
  '(nxml-slash-auto-complete-flag t)
  '(org-agenda-files '("/Users/donaldh/org-roam"))
  '(org-babel-load-languages
-   '((sqlite . t)
-     (sql . t)
-     (makefile . t)
-     (plantuml . t)
-     (perl . t)
-     (perl6 . t)
-     (python . t)
-     (raku . t)
-     (emacs-lisp . t)
-     (C . t)
-     (css . t)
-     (dot . t)
-     (java . t)
-     (js . t)
-     (restclient . t)
-     (shell . t)
-     (go . t)
-     (vega . t)
-     (kgt . t)
-     (http . t)
-     (rust . t)
+   '((sqlite . t) (sql . t) (makefile . t) (plantuml . t) (perl . t) (perl6 . t) (python . t)
+     (raku . t) (emacs-lisp . t) (C . t) (css . t) (dot . t) (java . t) (js . t)
+     (restclient . t) (shell . t) (go . t) (vega . t) (kgt . t) (http . t) (rust . t)
      (gnuplot . t)))
  '(org-confirm-babel-evaluate nil)
  '(org-mobile-files '("/Users/donaldh/org-roam"))
@@ -59,7 +98,20 @@
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(vterm string-inflection org-ai org-modern ipcalc protobuf-mode eglot emacsql-sqlite emacsql-sqlite-builtin emacsql eldoc-box mastodon slack ack-menu tramp gnuplot org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(vterm string-inflection org-ai org-modern ipcalc protobuf-mode eglot emacsql-sqlite
+           emacsql-sqlite-builtin emacsql eldoc-box mastodon slack ack-menu tramp gnuplot
+           org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http
+           marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async
+           org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode
+           cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide
+           wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el
+           visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode
+           restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+ '(safe-local-variable-values
+   '((eval c-set-offset 'arglist-cont-nonempty '(c-lineup-gcc-asm-reg c-lineup-arglist))
+     (eval c-set-offset 'arglist-close 0) (eval c-set-offset 'arglist-intro '++)
+     (eval c-set-offset 'case-label 0) (eval c-set-offset 'statement-case-open 0)
+     (eval c-set-offset 'substatement-open 0)))
  '(scroll-bar-mode nil)
  '(sentence-end-double-space nil)
  '(show-paren-mode t)
