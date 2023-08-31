@@ -19,3 +19,4 @@
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 465
       )
+(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
