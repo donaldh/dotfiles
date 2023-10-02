@@ -133,7 +133,8 @@
  '(diff-hl-insert ((t (:inherit diff-added :foreground "green"))))
  '(eglot-highlight-symbol-face ((t (:inherit bold :foreground "yellow"))))
  '(eglot-mode-line ((t nil)))
- '(fixed-pitch ((t (:family "SF Mono")))))
+ '(fixed-pitch ((t (:family "SF Mono"))))
+ '(sh-heredoc ((t (:foreground "yellow1")))))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
