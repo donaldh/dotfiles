@@ -291,6 +291,7 @@
               :section-numbers nil
               :with-toc nil
               :recursive t
+              :html-table-header-tags ("<th scope=\"%s\"%s><div>" . "</div></th>")
               :html-head "<link rel=\"stylesheet\"
                href=\"/donaldh-org.css\"
                type=\"text/css\"/>")
