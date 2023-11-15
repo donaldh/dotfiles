@@ -235,10 +235,6 @@
             (setq tab-width 8)
             (eglot-ensure)))
 
-(with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs
-               '((c-mode c-ts-mode c++-mode c++-ts-mode) . ("ccls"))))
-
 ;;
 ;; Process List
 ;;
