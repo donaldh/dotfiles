@@ -98,15 +98,17 @@
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(vterm string-inflection org-ai org-modern ipcalc protobuf-mode eglot emacsql-sqlite
-           emacsql-sqlite-builtin emacsql eldoc-box mastodon slack ack-menu tramp gnuplot
-           org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http
-           marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async
-           org-cliplink shx lsp-mode rustic ob-go jupyter org-roam transient tablist json-mode
-           cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide
-           wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el
-           visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode
-           restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(ace-jump-mode visual-fill-column diminish speed-type vterm
+                   string-inflection org-ai org-modern ipcalc protobuf-mode eglot emacsql-sqlite
+                   emacsql-sqlite-builtin emacsql eldoc-box mastodon slack ack-menu tramp
+                   gnuplot org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode
+                   org-roam-ui ob-http marginalia lsp-java lsp-pyright dap-mode lsp-ui ccls
+                   plantuml-mode ob-async org-cliplink shx lsp-mode rustic ob-go jupyter
+                   org-roam transient tablist json-mode cpputils-cmake cmake-mode cmake-project
+                   company flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible
+                   diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids
+                   groovy-mode pandoc-mode auctex dockerfile-mode go-mode restclient
+                   markdown-mode web-mode magit yaml-mode perl6-mode))
  '(safe-local-variable-values
    '((eval c-set-offset 'arglist-cont-nonempty '(c-lineup-gcc-asm-reg c-lineup-arglist))
      (eval c-set-offset 'arglist-close 0) (eval c-set-offset 'arglist-intro '++)
@@ -152,6 +154,12 @@
 (global-set-key [wheel-right] 'ignore)
 (global-set-key (kbd "C-x /") 'point-to-register)
 (global-set-key (kbd "C-x j") 'jump-to-register)
+
+;; ace-jump-mode
+(setq ace-jump-mode-scope 'window)
+(setq ace-jump-mode-case-fold nil)
+(global-set-key (kbd "<f16>") 'ace-jump-char-mode)
+(global-set-key (kbd "<f17>") 'ace-jump-mode-pop-mark)
 
 ;; Text
 (setq-default show-trailing-whitespace t)
