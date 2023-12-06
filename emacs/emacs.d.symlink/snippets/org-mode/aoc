@@ -1,10 +1,11 @@
 # -*- mode: snippet -*-
 # name: advent-of-code
 # key: <advent
+# expand-env: ((yas-indent-line 'fixed))
 # --
 ---
-title: "2022 AoC Day $1 – $2"
-date: 2022-12-$1
+title: "2023 AoC Day $1 – $2"
+date: 2023-12-$1
 tags:
   - raku
 categories:
@@ -13,11 +14,11 @@ categories:
 comments: true
 ---
 
-This is a solution to Advent of Code 2022 day $1, written in Raku.
+This is a solution to Advent of Code 2023 day $1, written in Raku.
 
 <!--more-->
 
-[[https://adventofcode.com/2022/day/$1]]
+[[https://adventofcode.com/2023/day/$1]]
 
 ** Part One
 
