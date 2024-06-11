@@ -65,7 +65,7 @@
      (tramp-connection-local-default-system-profile (path-separator . ":")
                                                     (null-device . "/dev/null"))))
  '(custom-enabled-themes '(tango-dark))
- '(default-frame-alist '((width . 120) (height . 96)))
+ '(default-frame-alist '((width . 120) (height . 96) (top . 25)))
  '(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
  '(erc-fill-column 120)
  '(exec-path
