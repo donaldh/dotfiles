@@ -112,16 +112,18 @@
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(ox-pandoc ace-jump-mode visual-fill-column diminish speed-type vterm string-inflection org-ai
-               org-modern ipcalc protobuf-mode eglot emacsql-sqlite emacsql-sqlite-builtin
-               emacsql eldoc-box mastodon slack ack-menu tramp gnuplot org-re-reveal helm-core
-               helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http marginalia lsp-java
-               lsp-pyright dap-mode lsp-ui ccls plantuml-mode ob-async org-cliplink shx lsp-mode
-               rustic ob-go jupyter org-roam transient tablist json-mode cpputils-cmake
-               cmake-mode cmake-project company flycheck cmake-ide rfc-mode f tide wsd-mode
-               jq-mode yasnippet ansible diff-hl sicp raku-mode ack htmlize ox-gfm pcre2el
-               visual-regexp-steroids groovy-mode pandoc-mode auctex dockerfile-mode go-mode
-               restclient markdown-mode web-mode magit yaml-mode perl6-mode))
+   '(casual-info casual dape uuidgen cc-isearch-menu casual-dired highlight-indentation p4-16-mode
+                 helpful ox-pandoc visual-fill-column diminish speed-type vterm
+                 string-inflection org-modern ipcalc protobuf-mode eglot emacsql-sqlite
+                 emacsql-sqlite-builtin emacsql eldoc-box mastodon tramp gnuplot
+                 org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui
+                 ob-http marginalia plantuml-mode ob-async
+                 org-cliplink shx rustic ob-go jupyter org-roam transient tablist
+                 json-mode cpputils-cmake cmake-mode cmake-project company flycheck cmake-ide
+                 rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp raku-mode ack
+                 htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode pandoc-mode auctex
+                 dockerfile-mode go-mode restclient markdown-mode web-mode magit yaml-mode
+                 perl6-mode))
  '(safe-local-variable-values
    '((eval c-set-offset 'arglist-cont-nonempty '(c-lineup-gcc-asm-reg c-lineup-arglist))
      (eval c-set-offset 'arglist-close 0) (eval c-set-offset 'arglist-intro '++)
@@ -375,11 +377,6 @@
             (define-key diff-mode-map "\M-h" nil)
             ))
 
-;; SuperCollider
-(add-to-list 'load-path "~/Library/Application Support/SuperCollider/downloaded-quarks/scel/el/")
-(require 'sclang)
-(define-key sclang-mode-map (kbd "s-.") (lambda () (interactive) (sclang-eval-expression "CmdPeriod.run")))
-
 ;; Mastodon
 (setq mastodon-instance-url "https://hachyderm.io"
       mastodon-active-user "donaldh")
@@ -387,5 +384,34 @@
 ;; Company
 (global-company-mode)
 
+;; Casual - Transient help
+(require 'cc-isearch-menu)
+(define-key isearch-mode-map (kbd "§") #'cc-isearch-menu-transient)
+
+(require 'casual)
+(define-key calc-mode-map (kbd "§") #'casual-main-menu)
+
+(require 'casual-dired)
+(define-key dired-mode-map (kbd "§") #'casual-dired-tmenu)
+
+(require 'casual-info)
+(define-key Info-mode-map (kbd "§") #'casual-info-tmenu)
+
+;; Avy
+(avy-setup-default)
+(setq avy-all-windows 'all-frames)
+
 ;; Server
-(server-start)
+(require 'server)
+(if (server-running-p)
+    (message "Server running in another Emacs instance")
+    (server-start))
+
+;; SuperCollider
+(let ((scdir "~/Library/Application Support/SuperCollider/downloaded-quarks/scel/el/"))
+  (if (file-directory-p scdir)
+      (progn
+        (add-to-list 'load-path scdir)
+        (require 'sclang)
+        (define-key sclang-mode-map (kbd "s-.")
+                    (lambda () (interactive) (sclang-eval-expression "CmdPeriod.run"))))))

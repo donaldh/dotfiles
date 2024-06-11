@@ -1,0 +1,2 @@
+;; Generated package description from p4-16-mode.el  -*- no-byte-compile: t -*-
+(define-package "p4-16-mode" "0.3" "Support for the P4_16 programming language" 'nil :commit "794dd0056b4ca736ae5ecb39072547f22a006137" :url "https://elpa.nongnu.org/nongnu/p4-16-mode.html" :authors '(("Soham S Gumaste" . "sohamg2@gmail.com")) :maintainer '("Soham S Gumaste" . "sohamg2@gmail.com") :keywords '("languages" "p4_16"))
