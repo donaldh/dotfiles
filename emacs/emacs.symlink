@@ -68,9 +68,6 @@
  '(default-frame-alist '((width . 120) (height . 96) (top . 25)))
  '(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
  '(erc-fill-column 120)
- '(exec-path
-   '("/usr/local/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin"
-     "/Applications/Emacs.app/Contents/MacOS/libexec"))
  '(footnote-body-tag-spacing 1)
  '(footnote-spaced-footnotes nil)
  '(frame-background-mode nil)
