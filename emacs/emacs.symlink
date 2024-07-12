@@ -383,20 +383,24 @@
 
 ;; Casual - Transient help
 (require 'cc-isearch-menu)
-(define-key isearch-mode-map (kbd "§") #'cc-isearch-menu-transient)
+(define-key isearch-mode-map (kbd "§") 'cc-isearch-menu-transient)
 
 (require 'casual)
-(define-key calc-mode-map (kbd "§") #'casual-main-menu)
+(define-key calc-mode-map (kbd "§") 'casual-main-menu)
 
 (require 'casual-dired)
-(define-key dired-mode-map (kbd "§") #'casual-dired-tmenu)
+(define-key dired-mode-map (kbd "§") 'casual-dired-tmenu)
 
 (require 'casual-info)
-(define-key Info-mode-map (kbd "§") #'casual-info-tmenu)
+(define-key Info-mode-map (kbd "§") 'casual-info-tmenu)
 
 ;; Avy
 (avy-setup-default)
 (setq avy-all-windows 'all-frames)
+(global-set-key (kbd "C-'") 'avy-goto-char-timer)
+
+;; ace-window
+(global-set-key (kbd "M-o") 'ace-window)
 
 ;; Server
 (require 'server)
