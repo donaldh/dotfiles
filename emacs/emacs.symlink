@@ -158,18 +158,19 @@
 (setq mac-right-command-modifier 'super)
 (setq mac-option-modifier nil)
 (setq mac-right-option-modifier 'alt)
-(global-set-key [(meta h)] 'ns-do-hide-emacs)
-(global-set-key [(meta \`)] 'other-frame)
-(global-set-key [wheel-left] 'ignore)
-(global-set-key [wheel-right] 'ignore)
-(global-set-key (kbd "C-x /") 'point-to-register)
-(global-set-key (kbd "C-x j") 'jump-to-register)
+
+(keymap-set global-map "M-h" 'ns-do-hide-emacs)
+(keymap-set global-map "M-`" 'other-frame)
+(keymap-set global-map "<wheel-left>" 'ignore)
+(keymap-set global-map "<wheel-right>" 'ignore)
+(keymap-set global-map "C-x /" 'point-to-register)
+(keymap-set global-map "C-x j" 'jump-to-register)
 
 ;; ace-jump-mode
 (setq ace-jump-mode-scope 'window)
 (setq ace-jump-mode-case-fold nil)
-(global-set-key (kbd "<f16>") 'ace-jump-char-mode)
-(global-set-key (kbd "<f17>") 'ace-jump-mode-pop-mark)
+(keymap-set global-map "<f16>" 'ace-jump-char-mode)
+(keymap-set global-map "<f17>" 'ace-jump-mode-pop-mark)
 
 ;; Text
 (setq-default show-trailing-whitespace t)
@@ -267,7 +268,7 @@
             (setq org-directory "~/org-roam")
             (setq org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
             (setq org-mobile-inbox-for-pull (concat org-directory "/inbox.org"))
-            (define-key org-mode-map "\M-h" nil)
+            (keymap-set org-mode-map "M-h" nil)
             (setq org-return-follows-link t)
             (turn-on-auto-fill)
             ))
@@ -275,7 +276,13 @@
 (add-hook 'org-capture-mode-hook
           (lambda () (org-roam-db-autosync-mode t)))
 
-(define-key global-map (kbd "s-b") (lambda () (interactive) (org-capture nil "b")))
+(keymap-set global-map "M-n" #'org-roam-node-find)
+
+(defun my--org-capture-bookmark ()
+  "Shortcut to capture an org bookmark"
+  (interactive)
+  (org-capture nil "b"))
+(keymap-set global-map "s-b" 'my--org-capture-bookmark)
 
 (setq org-capture-templates
       '(("b" "Bookmarks" entry
@@ -348,8 +355,8 @@
             #'my--tramp-send-command--workaround-stty-icanon-bug--filter-args)
 
 ;; Precise scrolling
-(define-key global-map (kbd "A-<up>") #'scroll-up-line)
-(define-key global-map (kbd "A-<down>") #'scroll-down-line)
+(keymap-set global-map "s-<up>" #'scroll-up-line)
+(keymap-set global-map "s-<down>" #'scroll-down-line)
 
 ;; TTY Emacs
 (unless (display-graphic-p)
@@ -357,8 +364,8 @@
   (menu-bar-mode -1)
   ;; activate mouse-based scrolling
   (xterm-mouse-mode 1)
-  (global-set-key (kbd "<mouse-4>") #'scroll-down-line)
-  (global-set-key (kbd "<mouse-5>") #'scroll-up-line)
+  (keymap-set global-map "<mouse-4>" #'scroll-down-line)
+  (keymap-set global-map "<mouse-5>" #'scroll-up-line)
   )
 
 (setq ring-bell-function 'ignore)
@@ -369,7 +376,7 @@
 ;; Diff mode
 (add-hook 'diff-mode-hook
           (lambda ()
-            (define-key diff-mode-map "\M-h" nil)
+            (keymap-set diff-mode-map "M-h" nil)
             ))
 
 ;; Mastodon
@@ -380,25 +387,21 @@
 (global-company-mode)
 
 ;; Casual - Transient help
-(require 'cc-isearch-menu)
-(define-key isearch-mode-map (kbd "§") 'cc-isearch-menu-transient)
-
-(require 'casual)
-(define-key calc-mode-map (kbd "§") 'casual-main-menu)
-
-(require 'casual-dired)
-(define-key dired-mode-map (kbd "§") 'casual-dired-tmenu)
-
-(require 'casual-info)
-(define-key Info-mode-map (kbd "§") 'casual-info-tmenu)
+;; (require 'casual-suite)
+;; (define-key isearch-mode-map (kbd "§") 'cc-isearch-menu-transient)
+;; (define-key calc-mode-map (kbd "§") 'casual-calc-tmenu)
+;; (define-key dired-mode-map (kbd "§") 'casual-dired-tmenu)
+;; (define-key Info-mode-map (kbd "§") 'casual-info-tmenu)
+;; (keymap-set ibuffer-mode-map "§" #'casual-ibuffer-tmenu)
+;; (keymap-set bookmark-bmenu-mode-map "§" #'casual-bookmarks-tmenu)
 
 ;; Avy
 (avy-setup-default)
 (setq avy-all-windows 'all-frames)
-(global-set-key (kbd "C-'") 'avy-goto-char-timer)
+(keymap-set global-map "C-'" 'avy-goto-char-timer)
 
 ;; ace-window
-(global-set-key (kbd "M-o") 'ace-window)
+(keymap-set global-map "M-o" 'ace-window)
 
 ;; Server
 (require 'server)
@@ -412,5 +415,5 @@
       (progn
         (add-to-list 'load-path scdir)
         (require 'sclang)
-        (define-key sclang-mode-map (kbd "s-.")
+        (keymap-set sclang-mode-map "s-."
                     (lambda () (interactive) (sclang-eval-expression "CmdPeriod.run"))))))
