@@ -146,16 +146,15 @@
  '(org-startup-folded nil)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(lua-mode dape uuidgen highlight-indentation p4-16-mode helpful ox-pandoc visual-fill-column
-              diminish speed-type vterm string-inflection org-modern ipcalc protobuf-mode eglot
-              emacsql-sqlite emacsql-sqlite-builtin emacsql eldoc-box mastodon tramp gnuplot
-              org-re-reveal helm-core helm spinner ob-rust graphviz-dot-mode org-roam-ui ob-http
-              marginalia plantuml-mode ob-async org-cliplink shx rustic ob-go jupyter org-roam
-              transient tablist json-mode cpputils-cmake cmake-mode cmake-project company
-              flycheck cmake-ide rfc-mode f tide wsd-mode jq-mode yasnippet ansible diff-hl sicp
-              raku-mode ack htmlize ox-gfm pcre2el visual-regexp-steroids groovy-mode
-              pandoc-mode auctex dockerfile-mode go-mode restclient markdown-mode web-mode magit
-              yaml-mode perl6-mode))
+   '(ack ansible auctex casual-suite cmake-ide cmake-mode cmake-project company cpputils-cmake dape
+         diff-hl diminish dockerfile-mode eglot eldoc-box emacsql emacsql-sqlite
+         emacsql-sqlite-builtin f flycheck gnuplot go-mode graphviz-dot-mode groovy-mode helm
+         helm-core helpful highlight-indentation htmlize ipcalc jq-mode json-mode lua-mode magit
+         marginalia markdown-mode mastodon ob-async ob-go ob-http ob-rust org-cliplink
+         org-modern org-re-reveal org-roam org-roam-ui ox-gfm ox-pandoc p4-16-mode pandoc-mode
+         pcre2el perl6-mode plantuml-mode protobuf-mode raku-mode restclient rfc-mode rustic shx
+         sicp speed-type spinner string-inflection tablist tide tramp transient uuidgen
+         visual-fill-column visual-regexp-steroids vterm web-mode wsd-mode yaml-mode yasnippet))
  '(safe-local-variable-values
    '((eval c-set-offset 'arglist-cont-nonempty '(c-lineup-gcc-asm-reg c-lineup-arglist))
      (eval c-set-offset 'arglist-close 0) (eval c-set-offset 'arglist-intro '++)
@@ -424,13 +423,13 @@
 (global-company-mode)
 
 ;; Casual - Transient help
-;; (require 'casual-suite)
-;; (define-key isearch-mode-map (kbd "§") 'cc-isearch-menu-transient)
-;; (define-key calc-mode-map (kbd "§") 'casual-calc-tmenu)
-;; (define-key dired-mode-map (kbd "§") 'casual-dired-tmenu)
-;; (define-key Info-mode-map (kbd "§") 'casual-info-tmenu)
-;; (keymap-set ibuffer-mode-map "§" #'casual-ibuffer-tmenu)
-;; (keymap-set bookmark-bmenu-mode-map "§" #'casual-bookmarks-tmenu)
+(require 'casual-suite)
+(keymap-set isearch-mode-map "§" 'cc-isearch-menu-transient)
+(keymap-set calc-mode-map "§" 'casual-calc-tmenu)
+(keymap-set dired-mode-map "§" 'casual-dired-tmenu)
+(keymap-set Info-mode-map "§" 'casual-info-tmenu)
+(keymap-set ibuffer-mode-map "§" #'casual-ibuffer-tmenu)
+(keymap-set bookmark-bmenu-mode-map "§" #'casual-bookmarks-tmenu)
 
 ;; Avy
 (avy-setup-default)
