@@ -1,2 +1,0 @@
-;;; Generated package description from /Users/donaldh/.emacs.d/elpa/cmake-project-20171121.1115/cmake-project.el  -*- no-byte-compile: t -*-
-(define-package "cmake-project" "20171121.1115" "Integrates CMake build process with Emacs" 'nil :commit "a7cf9e4c01c4683e14b6942cc5cc5e8cddc98721" :keywords '("c" "cmake" "languages" "tools") :authors '(("Alexander Lamaison" . "alexander.lamaison@gmail")) :maintainer '("Alexander Lamaison" . "alexander.lamaison@gmail") :url "http://github.com/alamaison/emacs-cmake-project")
