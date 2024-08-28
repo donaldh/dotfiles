@@ -402,3 +402,6 @@
         (require 'sclang)
         (keymap-set sclang-mode-map "s-."
                     (lambda () (interactive) (sclang-eval-expression "CmdPeriod.run"))))))
+
+;; which key
+(which-key-mode)
