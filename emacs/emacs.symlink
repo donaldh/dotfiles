@@ -410,3 +410,19 @@
 
 ;; which key
 (which-key-mode)
+
+;; shrink modeline
+(require 'diminish)
+(diminish 'flymake-mode "f")
+(diminish 'auto-revert-mode)
+(diminish 'company-mode "c")
+(diminish 'yas-minor-mode "y")
+(diminish 'eldoc-mode "d")
+(diminish 'abbrev-mode "a")
+(diminish 'which-key-mode)
+
+;; Fix image scrolling
+(pixel-scroll-precision-mode t)
+
+;; Gnus
+(setq nnrss-use-local t)
