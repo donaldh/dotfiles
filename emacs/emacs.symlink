@@ -373,7 +373,7 @@
 
 ;; Casual - Transient help
 (require 'casual-suite)
-(keymap-set isearch-mode-map "§" 'cc-isearch-menu-transient)
+(keymap-set isearch-mode-map "§" 'casual-isearch-tmenu)
 (keymap-set calc-mode-map "§" 'casual-calc-tmenu)
 (keymap-set dired-mode-map "§" 'casual-dired-tmenu)
 (keymap-set Info-mode-map "§" 'casual-info-tmenu)
