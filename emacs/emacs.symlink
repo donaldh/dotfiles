@@ -388,6 +388,11 @@
 ;; ace-window
 (keymap-set global-map "M-o" 'ace-window)
 
+(defun my-aw-lower-frame (window)
+  "Lower frame containing window."
+  (lower-frame (window-frame window)))
+(add-to-list 'aw-dispatch-alist '(?l my-aw-lower-frame "Lower Frame"))
+
 ;; Server
 (require 'server)
 (if (server-running-p)
