@@ -235,6 +235,9 @@
             (setq tab-width 8)
             (eglot-ensure)))
 
+(with-eval-after-load 'tramp
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
+
 ;;
 ;; Process List
 ;;
