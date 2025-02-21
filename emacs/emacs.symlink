@@ -108,6 +108,8 @@
                 speed-type spinner string-inflection tablist tide tramp transient uuidgen
                 visual-fill-column visual-regexp-steroids vterm web-mode wsd-mode yaml-mode
                 yasnippet))
+ '(project-vc-extra-root-markers '("Cargo.toml"))
+ '(rustic-lsp-client 'eglot)
  '(safe-local-variable-values
    '((eval c-set-offset 'arglist-cont-nonempty '(c-lineup-gcc-asm-reg c-lineup-arglist))
      (eval c-set-offset 'arglist-close 0) (eval c-set-offset 'arglist-intro '++)
