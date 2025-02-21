@@ -321,7 +321,8 @@
 
 (with-eval-after-load 'org
   (add-to-list 'org-babel-default-header-args
-               '(:eval . "never-export")))
+               '(:eval . "never-export"))
+  (add-to-list 'org-src-lang-modes '("html" . web)))
 
 ;; Magit
 (with-eval-after-load 'magit-mode
