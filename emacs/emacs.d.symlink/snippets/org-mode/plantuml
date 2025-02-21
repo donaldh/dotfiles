@@ -2,6 +2,6 @@
 # name: plantuml
 # key: <plantuml
 # --
-#+begin_src plantuml :file images/$1.png :tangle temp/$1.txt :exports results
+#+begin_src plantuml :file images/$1.png :exports both
 $0
 #+end_src
