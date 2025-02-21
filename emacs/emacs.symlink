@@ -60,7 +60,11 @@
  '(fringe-mode '(nil . 0) nil (fringe))
  '(help-window-select t)
  '(ibuffer-saved-filter-groups
-   '(("filters" ("tosh" (filename . "tosh")) ("files" (visiting-file)) ("special" (starred-name)))))
+   '(("filters"
+      ("tosh" (filename . "tosh"))
+      ("roam" (and (mode . org-mode) (filename . "org-roam")))
+      ("files" (visiting-file))
+      ("special" (starred-name)))))
  '(ibuffer-saved-filters
    '(("programming" (or (derived-mode . prog-mode) (mode . ess-mode) (mode . compilation-mode)))
      ("text document" (and (derived-mode . text-mode) (not (starred-name))))
