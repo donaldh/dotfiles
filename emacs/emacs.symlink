@@ -52,7 +52,7 @@
                                                     (null-device . "/dev/null"))))
  '(custom-enabled-themes '(tango-dark))
  '(default-frame-alist '((width . 120) (height . 96) (top . 25)))
- '(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
+ '(eglot-ignored-server-capabilities '(:hoverProvider :documentOnTypeFormattingProvider))
  '(erc-fill-column 120)
  '(footnote-body-tag-spacing 1)
  '(footnote-spaced-footnotes nil)
