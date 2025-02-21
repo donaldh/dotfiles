@@ -396,6 +396,7 @@
 (defun my-aw-lower-frame (window)
   "Lower frame containing window."
   (lower-frame (window-frame window)))
+(require 'ace-window)
 (add-to-list 'aw-dispatch-alist '(?l my-aw-lower-frame "Lower Frame"))
 
 ;; Server
