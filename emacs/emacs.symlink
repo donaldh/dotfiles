@@ -223,8 +223,11 @@
 (add-hook 'web-mode-hook
           (lambda ()
             (setq tab-width 4)
-            (setq web-mode-indent-style 4)
             (setq indent-tabs-mode t)
+            (setq web-mode-indent-style 4)
+            (setq web-mode-script-padding 4)
+            (setq web-mode-style-padding 4)
+            (setq web-mode-markup-indent-offset 4)
             (let ((ext (file-name-extension buffer-file-name)))
               (when (or (string-equal "tsx" ext) (string-equal "ts" ext))
                 (setup-tide-mode)))))
