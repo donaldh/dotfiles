@@ -393,13 +393,21 @@
 (global-company-mode)
 
 ;; Casual - Transient help
-(require 'casual-suite)
-(keymap-set isearch-mode-map "§" 'casual-isearch-tmenu)
-(keymap-set calc-mode-map "§" 'casual-calc-tmenu)
-(keymap-set dired-mode-map "§" 'casual-dired-tmenu)
-(keymap-set Info-mode-map "§" 'casual-info-tmenu)
+(require 'casual)
+(keymap-set isearch-mode-map "§" #'casual-isearch-tmenu)
+(require 'casual-calc)
+(keymap-set calc-mode-map "§" #'casual-calc-tmenu)
+(require 'casual-dired)
+(keymap-set dired-mode-map "§" #'casual-dired-tmenu)
+(require 'casual-info)
+(keymap-set Info-mode-map "§" #'casual-info-tmenu)
+(require 'casual-ibuffer)
 (keymap-set ibuffer-mode-map "§" #'casual-ibuffer-tmenu)
+(require 'casual-bookmarks)
 (keymap-set bookmark-bmenu-mode-map "§" #'casual-bookmarks-tmenu)
+(require 'casual-make)
+(keymap-set makefile-mode-map "§" #'casual-make-tmenu)
+
 
 ;; Avy
 (avy-setup-default)
