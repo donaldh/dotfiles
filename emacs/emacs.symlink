@@ -52,6 +52,8 @@
                                                     (null-device . "/dev/null"))))
  '(custom-enabled-themes '(tango-dark))
  '(default-frame-alist '((width . 120) (height . 96) (top . 25)))
+ '(deft-directory "/Users/donaldh/org-roam")
+ '(deft-extensions '("org" "txt" "text" "md"))
  '(eglot-ignored-server-capabilities '(:hoverProvider :documentOnTypeFormattingProvider))
  '(erc-fill-column 120)
  '(footnote-body-tag-spacing 1)
@@ -92,22 +94,25 @@
  '(org-modern-hide-stars nil)
  '(org-modern-table-vertical 1)
  '(org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
+ '(org-refile-targets '((org-agenda-files :maxlevel . 2)))
  '(org-src-fontify-natively t)
  '(org-src-preserve-indentation t)
  '(org-startup-folded nil)
  '(org-support-shift-select t)
+ '(org-tags-column -97)
  '(package-selected-packages
-   '(ace-window ack ansible auctex casual-suite cmake-ide cmake-mode cmake-project company
-                cpputils-cmake dape diff-hl diminish dockerfile-mode eglot eldoc-box emacsql
-                emacsql-sqlite emacsql-sqlite-builtin f flycheck gnuplot go-mode
+   '(ace-window ack aidermacs ansible auctex casual cmake-ide cmake-mode cmake-project company
+                cpputils-cmake dape deft diff-hl diminish dockerfile-mode eglot eldoc-box
+                emacsql emacsql-sqlite emacsql-sqlite-builtin emojify f flycheck gnuplot go-mode
                 graphviz-dot-mode groovy-mode helm helm-core helpful highlight-indentation
-                htmlize ipcalc jq-mode json-mode lua-mode magit marginalia markdown-mode
-                mastodon ob-async ob-go ob-http ob-rust org-cliplink org-modern org-re-reveal
-                org-roam org-roam-ui ox-gfm ox-pandoc p4-16-mode pandoc-mode pcre2el perl6-mode
-                plantuml-mode protobuf-mode raku-mode restclient rfc-mode rustic shx sicp
-                speed-type spinner string-inflection tablist tide tramp transient uuidgen
-                visual-fill-column visual-regexp-steroids vterm web-mode wsd-mode yaml-mode
-                yasnippet))
+                htmlize ipcalc jinja2-mode jq-mode json-mode kubed lua-mode magit marginalia
+                markdown-mode mastodon ob-async ob-go ob-http ob-rust org-cliplink org-jira
+                org-modern org-re-reveal org-roam org-roam-ui ox-gfm ox-pandoc p4-16-mode
+                pandoc-mode password-store password-store-menu pcre2el perl6-mode plantuml-mode
+                project-rootfile protobuf-mode raku-mode restclient rfc-mode shx sicp speed-type
+                spinner string-inflection tablist tide tramp transient uuidgen
+                visual-fill-column visual-regexp-steroids vterm wc-mode web-mode wsd-mode
+                yaml-mode yasnippet))
  '(project-vc-extra-root-markers '("Cargo.toml"))
  '(rustic-lsp-client 'eglot)
  '(safe-local-variable-values
@@ -330,6 +335,7 @@
               :components ("css" "roam" "images" "roam-resources"))))
 
 (with-eval-after-load 'org
+  (require 'graphviz-dot-mode)
   (add-to-list 'org-babel-default-header-args
                '(:eval . "never-export"))
   (add-to-list 'org-src-lang-modes '("html" . web)))
@@ -442,3 +448,36 @@
 
 ;; Gnus
 (setq nnrss-use-local t)
+
+;; project-rootfile
+(add-to-list 'project-find-functions #'project-rootfile-try-detect)
+
+;; deft
+(defun cf/deft-parse-title (file contents)
+      "Parse the given FILE and CONTENTS and determine the title.
+    If `deft-use-filename-as-title' is nil, the title is taken to
+    be the first non-empty line of the FILE.  Else the base name of the FILE is
+    used as title."
+      (let ((begin (string-match "^#\\+[tT][iI][tT][lL][eE]: .*$" contents)))
+        (if begin
+            (string-trim (substring contents begin (match-end 0)) "#\\+[tT][iI][tT][lL][eE]: *" "[\n\t ]+")
+          (deft-base-filename file))))
+
+(with-eval-after-load 'deft
+  (setq deft-directory "/Users/donaldh/org-roam")
+  (setq deft-extensions '("org" "txt" "text" "md"))
+  (advice-add 'deft-parse-title :override #'cf/deft-parse-title)
+  (setq deft-strip-summary-regexp
+        (concat "\\("
+                "[\n\t]" ;; blank
+                "\\|^#\\+[[:alpha:]_]+:.*$" ;; org-mode metadata
+                "\\|^:PROPERTIES:\n\\(.+\n\\)+:END:\n" ;; org-roam ID
+                "\\|\\[\\[\\(.*\\]\\)" ;; any link
+                "\\)")))
+
+;; aidermacs
+(with-eval-after-load 'aidermacs
+  (setq aidermacs-use-architect-mode t)
+  (setq aidermacs-default-model "sonnet"))
+(require 'aidermacs)
+(keymap-set global-map "C-c a" 'aidermacs-transient-menu)
