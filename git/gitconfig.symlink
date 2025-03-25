@@ -6,6 +6,12 @@
 	ignorecase = false
 	excludesfile = /Users/donaldh/.gitignore_global
         abbrev = 12
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
 [color]
 	ui = auto
 [log]
