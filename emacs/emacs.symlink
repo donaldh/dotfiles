@@ -290,13 +290,18 @@
   (interactive)
   (org-capture nil "b"))
 (keymap-set global-map "s-b" 'my--org-capture-bookmark)
+(defun my--org-capture-todo ()
+  "Shortcut to capture an org todo"
+  (interactive)
+  (org-capture nil "t"))
+(keymap-set global-map "s-t" 'my--org-capture-todo)
 
 (setq org-capture-templates
       '(("b" "Bookmarks" entry
-         (file+headline "~/.bookmarks.org" "Bookmarks")
-         "** %(org-cliplink-capture)%?\n" :unnarrowed t)
+         (file+headline "~/org-roam/new.org" "Bookmarks")
+         "**** %(org-cliplink-capture)%?\n" :unnarrowed t)
         ("t" "Tasks" entry
-         (file+headline "~/.notes.org" "Tasks")
+         (file+headline "~/org-roam/new.org" "Tasks")
          "** TODO %?\n  %u\n  %a")
         ))
 
