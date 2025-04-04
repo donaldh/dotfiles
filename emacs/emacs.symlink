@@ -260,6 +260,11 @@
 			       ("Thread"  12 t)
 			       ("Command"  0 t)])))
 
+;; Avy
+(avy-setup-default)
+(setq avy-all-windows 'all-frames)
+(keymap-set global-map "C-'" 'avy-goto-char-timer)
+
 ;;
 ;; org-mode
 ;;
@@ -270,6 +275,7 @@
             (setq org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
             (setq org-mobile-inbox-for-pull (concat org-directory "/inbox.org"))
             (keymap-set org-mode-map "M-h" nil)
+            (keymap-set org-mode-map "C-'" 'avy-goto-char-timer)
             (setq org-return-follows-link t)
             (turn-on-auto-fill)
             ))
@@ -406,10 +412,6 @@
 (keymap-set makefile-mode-map "§" #'casual-make-tmenu)
 
 
-;; Avy
-(avy-setup-default)
-(setq avy-all-windows 'all-frames)
-(keymap-set global-map "C-'" 'avy-goto-char-timer)
 
 ;; ace-window
 (keymap-set global-map "M-o" 'ace-window)
