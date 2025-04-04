@@ -162,12 +162,6 @@
 (keymap-set global-map "C-x /" 'point-to-register)
 (keymap-set global-map "C-x j" 'jump-to-register)
 
-;; ace-jump-mode
-(setq ace-jump-mode-scope 'window)
-(setq ace-jump-mode-case-fold nil)
-(keymap-set global-map "<f16>" 'ace-jump-char-mode)
-(keymap-set global-map "<f17>" 'ace-jump-mode-pop-mark)
-
 ;; Text
 (setq-default show-trailing-whitespace t)
 (setq-default fill-column 96)
