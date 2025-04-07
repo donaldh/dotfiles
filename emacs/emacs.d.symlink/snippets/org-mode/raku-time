@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: raku-time
+# key: <time
+# --
+say "Took " ~ (now - ENTER now).base(10,2) ~ " seconds";
