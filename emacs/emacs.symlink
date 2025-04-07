@@ -447,7 +447,7 @@
 (require 'diminish)
 (diminish 'flymake-mode "f")
 (diminish 'auto-revert-mode)
-(diminish 'company-mode "c")
+(diminish 'company-mode " c")
 (diminish 'yas-minor-mode "y")
 (diminish 'eldoc-mode "d")
 (diminish 'abbrev-mode "a")
