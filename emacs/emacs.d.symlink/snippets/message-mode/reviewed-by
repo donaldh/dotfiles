@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: reviewed-by
+# key: <rev
+# --
+Reviewed-by: Donald Hunter <donald.hunter@gmail.com>
