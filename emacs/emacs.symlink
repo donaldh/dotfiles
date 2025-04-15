@@ -416,6 +416,7 @@
 (keymap-set bookmark-bmenu-mode-map "<f15>" #'casual-bookmarks-tmenu)
 (require 'casual-make)
 (keymap-set makefile-mode-map "<f15>" #'casual-make-tmenu)
+(require 'casual-org)
 (keymap-set org-mode-map "<f15>" #'casual-org-tmenu)
 
 ;; ace-window
