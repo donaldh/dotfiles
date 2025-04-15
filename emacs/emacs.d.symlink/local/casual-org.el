@@ -14,6 +14,9 @@
     ("d" "Deft search..." deft :transient nil)
     ("p" "Publish..." org-publish :transient nil)
     ]
+   ["Slides"
+    ("r" "Reveal..." my-org-reveal-export :transient nil)
+    ]
    ["Mobile"
     ("<" "Pull" org-mobile-pull :transient nil)
     (">" "Push" org-mobile-push :transient nil)
@@ -22,6 +25,14 @@
     ("i" "Insert node..." org-roam-node-insert :transient nil)
     ("n" "Find node..." org-roam-node-find :transient nil)
     ]])
+
+(defun my-org-reveal-export ()
+  "Export slides using org-re-reveal and display them in the browser"
+  (interactive)
+  (require 'org-re-reveal)
+  (let ((enable-local-variables :all))
+    (hack-local-variables)
+    (org-re-reveal-export-to-html-and-browse)))
 
 (provide 'casual-org)
 ;;; casual-org.el ends here
