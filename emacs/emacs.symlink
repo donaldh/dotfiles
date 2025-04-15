@@ -284,6 +284,7 @@
           (lambda () (org-roam-db-autosync-mode t)))
 
 (keymap-set global-map "M-n" #'org-roam-node-find)
+(keymap-set global-map "M-<f15>" #'org-agenda)
 
 (defun my--org-capture-bookmark ()
   "Shortcut to capture an org bookmark"
