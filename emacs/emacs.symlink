@@ -101,18 +101,18 @@
  '(org-support-shift-select t)
  '(org-tags-column -97)
  '(package-selected-packages
-   '(ace-window ack aidermacs ansible auctex casual cmake-ide cmake-mode cmake-project company
-                cpputils-cmake dape deft diff-hl diminish dockerfile-mode eglot eldoc-box
-                emacsql emacsql-sqlite emacsql-sqlite-builtin emojify f flycheck gnuplot go-mode
-                graphviz-dot-mode groovy-mode helm helm-core helpful highlight-indentation
-                htmlize ipcalc jinja2-mode jq-mode json-mode kubed lua-mode magit marginalia
-                markdown-mode mastodon ob-async ob-go ob-http ob-rust org-cliplink org-jira
-                org-modern org-re-reveal org-roam org-roam-ui ox-gfm ox-pandoc p4-16-mode
-                pandoc-mode password-store password-store-menu pcre2el perl6-mode plantuml-mode
-                project-rootfile protobuf-mode raku-mode restclient rfc-mode shx sicp speed-type
-                spinner string-inflection tablist tide tramp transient uuidgen
-                visual-fill-column visual-regexp-steroids vterm wc-mode web-mode wsd-mode
-                yaml-mode yasnippet))
+   '(ace-window ack aidermacs ansible auctex casual circe cmake-ide cmake-mode cmake-project
+                company cpputils-cmake dape deft diff-hl diminish dockerfile-mode eglot
+                eldoc-box emacsql emacsql-sqlite emacsql-sqlite-builtin emojify f flycheck
+                gnuplot go-mode graphviz-dot-mode groovy-mode helm helm-core helpful
+                highlight-indentation htmlize ipcalc jinja2-mode jq-mode json-mode kubed
+                lua-mode magit marginalia markdown-mode mastodon ob-async ob-go ob-http ob-rust
+                org-cliplink org-jira org-modern org-re-reveal org-roam org-roam-ui ox-gfm
+                ox-pandoc p4-16-mode pandoc-mode password-store password-store-menu pcre2el
+                perl6-mode plantuml-mode project-rootfile protobuf-mode raku-mode restclient
+                rfc-mode shx sicp speed-type spinner string-inflection tablist tide tramp
+                transient uuidgen visual-fill-column visual-regexp-steroids vterm wc-mode
+                web-mode wsd-mode yaml-mode yasnippet))
  '(project-vc-extra-root-markers '("Cargo.toml"))
  '(rustic-lsp-client 'eglot)
  '(safe-local-variable-values
@@ -494,3 +494,26 @@
   (setq aidermacs-default-model "sonnet"))
 (require 'aidermacs)
 (keymap-set global-map "C-c a" 'aidermacs-transient-menu)
+
+;; circe
+(defun my-fetch-password (&rest params)
+  (require 'auth-source)
+  (let ((match (car (apply 'auth-source-search params))))
+    (if match
+        (let ((secret (plist-get match :secret)))
+          (if (functionp secret)
+              (funcall secret)
+            secret))
+      (error "Password not found for %S" params))))
+
+(defun my-sasl-password (server)
+  (my-fetch-password :user "donaldh" :host "irc.libera.chat"))
+
+(setq circe-network-options
+      '(("Libera Chat"
+         :tls t
+         :nick "donaldh"
+         :sasl-username "donaldh"
+         :sasl-password my-sasl-password
+         :channels ("#raku" "#raku-dev" "#raku-doc")
+         )))
