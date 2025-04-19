@@ -13,6 +13,11 @@
     ("a" "Agenda..." org-agenda :transient nil)
     ("d" "Deft search..." deft :transient nil)
     ("p" "Publish..." org-publish :transient nil)
+    ("w" "Refile..." org-refile :transient nil)
+    ("." "Timestamp" org-timestamp :transient nil)
+    ]
+   ["Table"
+    ("|" "Create..." org-table-create-or-convert-from-region :transient nil)
     ]
    ["Slides"
     ("r" "Reveal..." my-org-reveal-export :transient nil)
