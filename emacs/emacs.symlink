@@ -229,6 +229,13 @@
 (flycheck-add-mode 'typescript-tslint #'web-mode)
 
 ;;
+;; python
+;;
+(add-hook 'python-mode-hook
+          (lambda ()
+            (eldoc-mode -1)))
+
+;;
 ;; eglot
 ;;
 (add-hook 'go-mode-hook
