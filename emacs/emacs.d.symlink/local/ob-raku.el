@@ -1,4 +1,4 @@
-;;; ob-raku.el --- Babel Functions for Raku
+;;; ob-raku.el --- Babel Functions for Raku  -*- lexical-binding: t; -*-
 ;;; -*- lexical-binding: t; -*-
 
 ;; This file is NOT part of GNU Emacs.

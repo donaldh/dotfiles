@@ -1,4 +1,4 @@
-;;; ob-restclient.el --- org-babel functions for restclient-mode
+;;; ob-restclient.el --- org-babel functions for restclient-mode  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) Alf Lervåg
 

@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*-
+;; -*-  mode: emacs-lisp; lexical-binding: t;  -*-
 
 (setq user-mail-address "donald.hunter@gmail.com"
       user-full-name "Donald Hunter"

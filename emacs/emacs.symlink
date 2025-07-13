@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*-
+;; -*-  mode: emacs-lisp; lexical-binding: t;  -*-
 (defvar global-minor-modes nil)
 
 (custom-set-variables

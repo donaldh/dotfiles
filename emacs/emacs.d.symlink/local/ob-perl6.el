@@ -1,4 +1,4 @@
-;;; ob-perl6.el --- Babel Functions for Perl 6
+;;; ob-perl6.el --- Babel Functions for Perl 6  -*- lexical-binding: t; -*-
 ;;; -*- lexical-binding: t; -*-
 
 ;; This file is NOT part of GNU Emacs.
