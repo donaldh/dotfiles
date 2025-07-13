@@ -21,7 +21,7 @@
     ("|" "Create..." org-table-create-or-convert-from-region :transient nil)
     ]
    ["Slides"
-    ("r" "Reveal..." my-org-reveal-export :transient nil)
+    ("r" "Reveal export" my-org-reveal-export :transient nil)
     ]
    ["Mobile"
     ("<" "Pull" org-mobile-pull :transient nil)
