@@ -534,3 +534,7 @@
          :sasl-password my-sasl-password
          :channels ("#raku" "#raku-dev" "#raku-doc")
          )))
+
+(auth-source-pass-enable)
+
+;; end
