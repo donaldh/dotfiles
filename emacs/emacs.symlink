@@ -143,7 +143,9 @@
  '(eglot-highlight-symbol-face ((t (:inherit bold :foreground "yellow"))))
  '(eglot-mode-line ((t nil)))
  '(fixed-pitch ((t (:family "SF Mono"))))
- '(sh-heredoc ((t (:foreground "yellow1")))))
+ '(sh-heredoc ((t (:foreground "yellow1"))))
+ '(variable-pitch ((t (:height 1.2 :family "Helvetica"))))
+ '(variable-pitch-text ((t (:inherit variable-pitch)))))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
