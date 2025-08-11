@@ -544,4 +544,16 @@
 
 (auth-source-pass-enable)
 
+;; claude code
+
+(add-to-list 'load-path "~/.emacs.d/local/claude-code-ide")
+(autoload 'claude-code-ide "claude-code-ide" "Claude Code IDE." t)
+(setopt claude-code-ide-use-side-window nil)
+(setopt
+ display-buffer-alist
+ '((".*claude-code.*"
+    (display-buffer-use-some-frame
+     display-buffer-pop-up-frame)
+    (reusable-frames . visible))))
+
 ;; end
