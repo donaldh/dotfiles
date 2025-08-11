@@ -103,16 +103,16 @@
  '(package-selected-packages
    '(ace-window ack aidermacs ansible auctex casual circe cmake-ide cmake-mode cmake-project
                 company cpputils-cmake cue-mode dape deft diff-hl diminish dockerfile-mode eglot
-                eldoc-box elpy emacsql emacsql-sqlite emacsql-sqlite-builtin emojify f flycheck
-                gnuplot go-mode gptel graphviz-dot-mode groovy-mode helm helm-core helpful
-                highlight-indentation htmlize ipcalc jinja2-mode jq-mode json-mode kubed
-                ligature lua-mode magit marginalia markdown-mode mastodon ob-async ob-go ob-http
-                ob-rust org-cliplink org-jira org-modern org-re-reveal org-roam org-roam-ui
-                ox-gfm ox-pandoc p4-16-mode pandoc-mode password-store password-store-menu
-                pcre2el perl6-mode plantuml-mode protobuf-mode raku-mode restclient rfc-mode shx
-                sicp speed-type spinner string-inflection tablist tidal tide tramp transient
-                uuidgen visual-fill-column visual-regexp-steroids vterm wc-mode web-mode
-                wsd-mode yaml-mode yasnippet))
+                eldoc-box elpy emacs-everywhere emacsql emacsql-sqlite emacsql-sqlite-builtin
+                emojify f flycheck gnuplot go-mode gptel graphviz-dot-mode groovy-mode helm
+                helm-core helpful highlight-indentation htmlize ipcalc jinja2-mode jq-mode
+                json-mode kubed ligature lua-mode magit marginalia markdown-mode mastodon
+                ob-async ob-go ob-http ob-rust org-cliplink org-jira org-modern org-re-reveal
+                org-roam org-roam-ui ox-gfm ox-pandoc p4-16-mode pandoc-mode password-store
+                password-store-menu pcre2el perl6-mode plantuml-mode protobuf-mode raku-mode
+                restclient rfc-mode shx sicp speed-type spinner string-inflection tablist tidal
+                tide tramp transient uuidgen visual-fill-column visual-regexp-steroids vterm
+                wc-mode web-mode wsd-mode yaml-mode yasnippet))
  '(project-vc-extra-root-markers
    '("Cargo.toml" "pyproject.toml" "requirements.txt" "go.mod"))
  '(rustic-lsp-client 'eglot)
