@@ -443,11 +443,18 @@
 (defun my-aw-lower-frame (window)
   "Lower frame containing window."
   (lower-frame (window-frame window)))
+(defun my-aw-raise-frame (window)
+  "Raise frame containing window."
+  (let ((f (selected-frame)))
+    (raise-frame (window-frame window))
+    (select-frame-set-input-focus f)))
 (require 'ace-window)
 (add-to-list 'aw-dispatch-alist '(?l my-aw-lower-frame "Lower Frame"))
+(add-to-list 'aw-dispatch-alist '(?r my-aw-raise-frame "Raise Frame"))
 
 ;; Server
 (require 'server)
+;(setopt server-use-tcp t)
 (if (server-running-p)
     (message "Server running in another Emacs instance")
     (server-start))
