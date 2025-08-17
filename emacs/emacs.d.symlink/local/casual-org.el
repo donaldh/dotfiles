@@ -13,6 +13,7 @@
     ("a" "Agenda..." org-agenda :transient nil)
     ("b" "Babel›" casual-org-babel-tmenu :transient nil)
     ("d" "Deft search..." deft :transient nil)
+    ("m" "Paste to inline image..." casual-org-paste-to-inline-image :transient nil)
     ("p" "Publish..." org-publish :transient nil)
     ("w" "Refile..." org-refile :transient nil)
     ("!" "Inactive timestamp" org-timestamp-inactive :transient nil)
@@ -64,6 +65,12 @@
   (let ((enable-local-variables :all))
     (hack-local-variables)
     (org-re-reveal-export-to-html-and-browse)))
+
+(defun casual-org-paste-to-inline-image (filename)
+  "Paste the clipboard to an inline image."
+  (interactive "FFilename: ")
+  (call-process "pngpaste" nil nil nil (expand-file-name filename))
+  (org-insert-link nil (concat "file:" filename)))
 
 (provide 'casual-org)
 ;;; casual-org.el ends here
