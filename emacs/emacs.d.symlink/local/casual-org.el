@@ -22,7 +22,7 @@
     ("|" "Create..." org-table-create-or-convert-from-region :transient nil)
     ]
    ["Slides"
-    ("r" "Reveal export" my-org-reveal-export :transient nil)
+    ("r" "Reveal export" casual-org-reveal-export :transient nil)
     ]
    ["Mobile"
     ("<" "Pull" org-mobile-pull :transient nil)
@@ -57,7 +57,7 @@
    ("v" "Expand src block" org-babel-expand-src-block :transient t)
    ]])
 
-(defun my-org-reveal-export ()
+(defun casual-org-reveal-export ()
   "Export slides using org-re-reveal and display them in the browser"
   (interactive)
   (require 'org-re-reveal)
