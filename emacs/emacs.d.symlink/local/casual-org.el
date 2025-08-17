@@ -15,7 +15,8 @@
     ("d" "Deft search..." deft :transient nil)
     ("p" "Publish..." org-publish :transient nil)
     ("w" "Refile..." org-refile :transient nil)
-    ("." "Timestamp" org-timestamp :transient nil)
+    ("!" "Inactive timestamp" org-timestamp-inactive :transient nil)
+    ("." "Active timestamp" org-timestamp :transient nil)
     ]
    ["Table"
     ("|" "Create..." org-table-create-or-convert-from-region :transient nil)
