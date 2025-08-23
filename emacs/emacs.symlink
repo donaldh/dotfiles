@@ -415,6 +415,7 @@
 ;; Mastodon
 (setq mastodon-instance-url "https://hachyderm.io"
       mastodon-active-user "donaldh")
+(setopt mastodon-tl--show-avatars t)
 
 ;; Company
 (global-company-mode)
