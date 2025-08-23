@@ -557,12 +557,4 @@
      display-buffer-pop-up-frame)
     (reusable-frames . visible))))
 
-;; paste directly from clipboard
-
-(defun my-org-paste-to-image (filename)
-  "Paste the clipboard to an inline image."
-  (interactive "FFilename: ")
-  (call-process "pngpaste" nil nil nil (expand-file-name filename))
-  (org-insert-link nil (concat "file:" filename)))
-
 ;; end
