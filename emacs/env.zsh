@@ -1,3 +1,3 @@
 export VISUAL="emacsclient -c"
-alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
-alias emacsclient=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+EMACS_HOME="/Applications/Emacs.app/Contents/MacOS"
+PATH="$PATH:$EMACS_HOME/bin:$EMACS_HOME"
